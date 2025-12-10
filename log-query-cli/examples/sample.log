@@ -1,0 +1,10 @@
+2024-01-01T12:00:00Z INFO app.service: User login success id=123
+{"timestamp": "2024-01-01T12:01:00Z", "level": "ERROR", "service": "db", "message": "Connection failed", "user": "alice"}
+[2024-01-01 12:02:00] WARN cache: Key miss user:123
+2024-01-01T12:03:00Z ERROR auth: Invalid token for bob
+{"level": "INFO", "msg": "Cache hit"}
+2024-01-01T12:04:00 ERROR app: Timeout
+Plain unstructured log
+{"timestamp": "2024-01-01T12:05:00Z", "level": "ERROR", "service": "db", "error": "Query failed"}
+[2024-01-01 12:06:00] INFO startup: Server ready
+2024-01-01T12:07:00Z WARN deprecated: Old API used
