@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "polars[python]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csv-diff-cli"
+dynamic = ["version"]
+description = "Advanced CLI for semantically diffing CSV files"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+maintainers = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "polars>=1.0.0",
+]
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.5.0",
+    "rich-click>=1.0.0",
+]
+[project.scripts]
+csv-diff-cli = "csv_diff_cli.main:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/csv-diff-cli"
+Repository = "https://github.com/cycoders/code.git"
+Changelog = "https://github.com/cycoders/code/blob/main/csv-diff-cli/CHANGELOG.md"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra --strict-markers --tb=short"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::PendingDeprecationWarning:polars.*",
+]
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "A", "C4", "PT", "UP", "W", "ARG", "PTH", "PL", "PD", "PGH", "PIE", "T20", "ISC", "RSE", "DTZ"]
+ignore = ["PLR0913", "S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403", "F405"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
