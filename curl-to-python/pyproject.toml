@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools >= 45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curl-to-python"
+dynamic = []
+description = "Convert curl commands to idiomatic Python requests/httpx code"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+maintainers = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities",
+]
+dependencies = [
+  "typer",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest >= 7.0",
+  "pytest-cov",
+  "ruff",
+  "rich",
+]
+
+[project.scripts]
+"curl-to-python" = "curl_to_python.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/curl-to-python"
+Repository = "https://github.com/cycoders/code"
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers --strict-config"
+testpaths = ["tests"]
+testpaths.exclude = []
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP", "B", "Q", "W", "T20", "ARG", "PTH", "ERA", "RSE"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+line-length = 100
+quote-style = "double"
