@@ -1,0 +1,23 @@
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:asyncio",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "A", "C4", "T20", "DJ", "P", "UP", "PGH", "PL", "PD", "PO", "PT", "PI", "PC", "PB", "YTT", "ANN", "INP", "ARG", "RSE", "BLE", "FBT", "TCH", "WPS", "NPY", "ISC", "ICN", "G", "PIE", "T20", "RUF"]
+ignore = ["ANN101", "ANN102", "ANN401", "D203", "D213"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403", "F405"]
+"tests/*" = ["S101"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,14 @@
+url: https://httpbin.org/delay/0.1
+method: GET
+clients:
+  - httpx
+  - httpx-sync
+  - requests
+  - aiohttp
+concurrency: 20
+duration: 15.0
+headers:
+  User-Agent: ReqBench/0.1.0
+params:
+  test: value
+json: {"key": "value"}
