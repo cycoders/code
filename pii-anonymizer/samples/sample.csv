@@ -1,0 +1,6 @@
+name,email,phone,ssn,address
+John Doe,john@example.com,(555) 123-4567,123-45-6789,123 Main St NYC
+Jane Smith,jane@fake.org,+1-555-987-6543,987-65-4321,456 Oak Ave
+Bob Johnson,bob@test.com,555-111-2222,111-22-3333,789 Pine Rd
+Alice Brown,alice@domain.co,(123)456-7890,444-55-6666,101 Elm St
+Charlie Wilson,charlie@ex.com,1-800-555-0123,777-88-9999,202 Birch Ln

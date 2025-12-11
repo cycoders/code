@@ -1,0 +1,6 @@
+typer==0.12.5
+rich==13.9.3
+pandas==2.2.2
+faker==30.0.0
+tqdm==4.66.5
+pyyaml==6.0.2
