@@ -1,0 +1,4 @@
+num_runs = 5
+threshold = 0.1
+pytest_args = ["test_demo.py"]
+output_dir = "demo-reports"

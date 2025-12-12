@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test-flake-detector"
+version = "0.1.0"
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+description = "Detects flaky tests by running pytest multiple times and analyzing pass/fail consistency."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer",
+    "rich",
+    "tomlkit",
+    "jinja2",
+]
+
+[project.scripts]
+test-flake-detector = "test_flake_detector.main:cli"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
