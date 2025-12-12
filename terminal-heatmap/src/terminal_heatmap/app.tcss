@@ -1,0 +1,27 @@
+Screen {
+  layout: vertical;
+}
+
+#stats {
+  height: 1;
+  content-align: center middle;
+  background: $background 80%;
+  color: $text;
+  padding: 0 2;
+}
+
+DataTable {
+  height: 1fr;
+}
+
+DataTable > .table--header {
+  text-style: bold;
+}
+
+table {
+  border: round $primary;
+}
+
+Footer {
+  height: 1;
+}
