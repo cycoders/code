@@ -1,0 +1,57 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Venv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# PyInstaller
+.PyInstaller/
+
+# VS Code
+.vscode/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Coverage
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+.tox/
+pytest_tests.log
