@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "regex-playground-cli"
+version = "0.1.0"
+description = "Interactive terminal regex playground for testing patterns with highlighted matches and explanations"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+  "typer >= 0.9.0",
+  "rich >= 13.5.0",
+]
+
+[project.scripts]
+regex-playground-cli = "regex_playground_cli.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/regex-playground-cli"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
