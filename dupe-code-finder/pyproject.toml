@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools >= 45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dupe-code-finder"
+version = "0.1.0"
+description = "Detects duplicate code blocks in Python projects using normalized token similarity"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati"}]
+maintainers = [{name = "Arya Sianati"}]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "rich",
+    "typer[all]",
+    "rapidfuzz",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest >= 7.0",
+    "pytest-cov",
+    "ruff",
+    "black",
+]
+
+[project.scripts]
+dupe-code-finder = "dupe_code_finder.main:cli"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/dupe-code-finder"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:.*typer.*",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "C4", "T20", "Q", "DJ", "P", "ARG", "C9", "ERA", "NPY", "PD", "PL", "PGH", "PIE", "PT", "RSE", "RUF", "SIM"]
+ignore = ["B008"]
+
+[tool.black]
+target-version = ['py311']
