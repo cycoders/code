@@ -1,0 +1,5 @@
+[ignore_globs]
+ignored = ["examples/**", "*.log", "temp/**"]
+
+[custom_tags]
+tags = ["REFACTOR", "PERF", "BUG"]
