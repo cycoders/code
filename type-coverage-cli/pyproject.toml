@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "type-coverage-cli"
+version = "0.1.0"
+description = "Precise CLI for measuring type annotation coverage in Python projects"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/type-coverage-cli"
+keywords = ["python", "types", "coverage", "cli", "ast"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+type-coverage-cli = "type_coverage_cli.cli:main"
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = "-q --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+markers = [
+    "slow: marks tests as slow",
+]
