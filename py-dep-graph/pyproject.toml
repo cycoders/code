@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "py-dep-graph"
+dynamic = ["version"]
+version = "0.1.0"
+description = "Static Python dependency graph generator with cycle detection"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Arya Sianati", email = "arya@cycoders.com"},
+]
+dependencies = [
+  "typer[all]",
+  "rich",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest >= 7.4",
+]
+
+[project.scripts]
+py-dep-graph = "py_dep_graph.cli:main"
+
+[tool.hatch.version]
+path = "src/py_dep_graph/__init__.py"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = "tests"
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = [
+    "ignore::DeprecationWarning:.*typer.*",
+]
