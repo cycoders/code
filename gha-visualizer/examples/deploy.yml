@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  test:
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+      - run: pip install build twine
+      - run: python -m build
+      - uses: sigstore/cosign-installer@v3
+      - run: twine upload dist/* --skip-existing
+
+  notify:
+    needs: [test, publish]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deployed!"
