@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mutation-tester"
+version = "0.1.0"
+description = "Mutation testing CLI for Python projects"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+dependencies = [
+  "typer",
+  "rich",
+]
+
+[project.scripts]
+mutation-tester = "mutation_tester.cli:cli_app"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "black",
+  "mypy",
+  "pre-commit",
+]
