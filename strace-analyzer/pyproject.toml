@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "strace-analyzer"
+dynamic = ["version"]
+description = "Parses strace logs for performance insights"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+  {name = "Arya Sianati", email = "arya@cycoders.com"},
+]
+dependencies = [
+  "rich>=13.7.0",
+  "typer[all]>=0.12.0",
+]
+
+[project.scripts]
+strace-analyzer = "strace_analyzer.cli:app"
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --import-mode=importlib"
+testpaths = [
+    "tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.rich]
