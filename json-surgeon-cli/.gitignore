@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.env
+.env.local
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+*.prof
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

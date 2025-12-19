@@ -1,0 +1,5 @@
+textual>=0.90.0
+jmespath
+jsonschema
+pyperclip
+typer[all]

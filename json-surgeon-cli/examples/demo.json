@@ -1,0 +1,8 @@
+{
+  "users": [
+    {"name": "Alice", "age": 30, "tags": ["dev", "senior"]},
+    {"name": "Bob", "age": 25, "tags": ["junior"]},
+    {"name": "Charlie", "age": 35, "metadata": {"dept": "eng"}}
+  ],
+  "config": {"max_users": 100, "enabled": true}
+}
