@@ -1,0 +1,15 @@
+- request:
+    method: GET
+    path: /posts/1
+    query: {}
+    headers:
+      authorization: Bearer demo
+    body_b64: null
+    content_type: null
+  response:
+    status: 200
+    headers:
+      content-type: application/json; charset=utf-8
+    body_b64: ewogICJ1c2VySWQiOiAxLAogICJpZCI6IDEsCiAgInRpdGxlIjogInN1bm1lciIsCiAgImJvZHkiOiAiYmFyIgogfQ==
+    content_type: application/json; charset=utf-8
+  latency: 0.123
