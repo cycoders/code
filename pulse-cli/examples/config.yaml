@@ -1,0 +1,12 @@
+endpoints:
+  - name: httpbin-json
+    url: https://httpbin.org/json
+    expected_status: [200]
+    max_resp_time: 800.0
+    content_match: 'slideshow'
+    check_cert: true
+  - name: google
+    url: https://www.google.com
+    expected_status: [200, 301, 302]
+    max_resp_time: 300.0
+    check_cert: true
