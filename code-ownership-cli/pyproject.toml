@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "code-ownership-cli"
+dynamic = ["version"]
+description = "Analyzes git blame to visualize code ownership"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "typer[all]==0.12.5",
+  "rich==13.7.1"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest==8.3.2"
+]
+
+[project.scripts]
+code-ownership-cli = "code_ownership_cli.__main__:main"
+
+[tool.hatch.version]
+path = "src/code_ownership_cli/__init__.py"
