@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "import-cycle-detector"
+version = "0.1.0"
+description = "Detects circular imports in Python codebases and generates Graphviz DOT files to visualize the full import dependency graph with highlighted cycles"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/import-cycle-detector"
+keywords = ["python", "imports", "cycles", "graphviz", "cli", "ast"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Testing",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.0"
+networkx = "^3.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3"
+pytest-cov = "^5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+icd = "import_cycle_detector.cli:app"
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+markers = [
+    "slow: marks tests as slow",
+    "serial: marks tests that must run serially",
+]
