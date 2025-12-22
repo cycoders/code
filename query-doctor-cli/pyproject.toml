@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=7.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "query-doctor-cli"
+dynamic = ["version"]
+description = "Diagnoses performance issues in SQL queries against provided schemas and suggests targeted optimizations"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "Arya Sianati"}]
+license = {file = "LICENSE"}
+dependencies = [
+    "typer>=0.12.3",
+    "rich>=13.7.1",
+    "sqlglot>=25.12.5",
+]
+
+[project.scripts]
+query-doctor-cli = "query_doctor_cli.__main__:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools_scm]
+write_to = "src/query_doctor_cli/_version.py"
