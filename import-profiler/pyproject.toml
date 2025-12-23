@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "import-profiler"
+dynamic = ["version"]
+description = "Profiles Python script startup imports with dep tree timings and suggestions"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "typer >= 0.12.0",
+  "rich >= 13.7.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest >= 7.4.0",
+  "pytest-mock >= 3.14.0"
+]
+
+[project.scripts]
+import-profiler = "import_profiler.cli:app"
+
+[tool.hatch.version]
+path = "src/import_profiler/__init__.py"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = [
+    "ignore::DeprecationWarning:.*typer.*",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "ARG", "P", "C4", "ERA", "RUF"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403", "F405"]
