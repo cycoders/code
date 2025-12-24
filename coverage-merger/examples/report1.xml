@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<coverage>
+  <sources version="2">
+    <source>.</source>
+  </sources>
+  <packages>
+    <package name="src">
+      <classes>
+        <class filename="file.py" lines="3" line_rates="66.67" branches="1" branch_rates="100.0">
+          <lines>
+            <line number="1" hits="1"/>
+            <line number="2" hits="0"/>
+            <line number="3" hits="1" branch="true"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
