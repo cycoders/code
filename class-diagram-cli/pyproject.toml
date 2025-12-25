@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "class-diagram-cli"
+version = "0.1.0"
+description = "Generates accurate Mermaid class diagrams from Python source code to visualize architecture and OOP relationships effortlessly"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/class-diagram-cli"
+keywords = ["cli", "mermaid", "diagram", "ast", "visualization", "architecture"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Code Generators",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^5.0.0"
+mypy = "^1.11.2"
+ruff = "^0.6.9"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+class-diagram-cli = "class_diagram_cli.cli:app"
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = "-ra --cov=src/class_diagram_cli --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = "typer.*"
+disable_error_code = "attr-defined"
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "C4", "T20", "DJ", "ARG", "PTH", "PL", "RSE", "PD", "PGH", "PIE", "TCH", "Q", "INP", "ISC", "G", "YTT", "ANN", "S", "BLE", "FBT", "C90", "LOG", "NPY", "PERF", "SLF", "SIM", "TID", "ARG", "PTH"]
+ignore = ["ANN101", "ANN102", "ANN401", "D203", "D213"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403", "F405"]
+"tests/*" = ["S101"]
