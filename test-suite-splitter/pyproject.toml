@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "test-suite-splitter"
+version = "0.1.0"
+description = "Intelligently splits test suites across parallel CI jobs using historical JUnit XML timings"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/test-suite-splitter"
+keywords = ["ci", "testing", "pytest", "junit", "parallel"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = ">=13.7.0"
+lxml = "^5.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-cov = "^5.0"
+ruff = "^0.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+test-suite-splitter = "test_suite_splitter.cli:app"
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+markers = [
+    "slow: slow tests",
+    "serial: non-parallelizable",
+]
+
+[tool.coverage.run]
+source = ["test_suite_splitter", "tests"]
+omit = [
+    "tests/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

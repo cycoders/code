@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="6.123" tests="5" failures="0" errors="0">
+  <testsuite name="slow suite" timestamp="2024-01-01T00:00:00" hostname="ci-runner" tests="3" failures="0" errors="0" time="5.0">
+    <testcase name="user.testSlowQuery" classname="tests.user" time="2.5"/>
+    <testcase name="user.testBulkInsert" classname="tests.user" time="1.8"/>
+    <testcase name="user.testComplexJoin" classname="tests.user" time="0.7"/>
+  </testsuite>
+  <testsuite name="fast suite" tests="2" failures="0" errors="0" time="1.123">
+    <testcase name="auth.testLogin" classname="tests.auth" time="0.6"/>
+    <testcase name="auth.testLogout" classname="tests.auth" time="0.523"/>
+  </testsuite>
+</testsuites>
