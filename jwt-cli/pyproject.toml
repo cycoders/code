@@ -1,0 +1,14 @@
+[tool.pytest.ini_options]
+addopts = "-q --cov=src/jwt_cli --cov-report=term-missing --cov-report=html --cov-fail-under=95"
+testpaths = [
+    "tests",
+]
+minversion = "8.0"
+markers = [
+    "slow: Marks tests as slow (deselect with '-m "not slow"')",
+    "rsa: RSA key tests",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
