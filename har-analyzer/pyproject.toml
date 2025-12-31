@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "har-analyzer"
+dynamic = ["version"]
+version = "0.1.0"
+description = "CLI to analyze HAR files for web performance insights"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+maintainers = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+keywords = ["cli", "har", "performance", "web", "debug"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Monitoring",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+]
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "rich-click>=1.7.0",
+]
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/har-analyzer"
+Repository = "https://github.com/cycoders/code"
+Changelog = "https://github.com/cycoders/code/blob/main/har-analyzer/CHANGELOG.md"
+
+[project.scripts]
+har-analyzer = "har_analyzer.cli:app"
+
+[tool.hatch.version]
+path = "src/har_analyzer/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/har_analyzer"]
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "C4", "T20", "ARG", "PTH"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.mypy.typer]
+disallow_untyped_defs = false
