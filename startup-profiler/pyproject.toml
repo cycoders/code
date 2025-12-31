@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "startup-profiler"
+version = "0.1.0"
+description = "Profiles Python application startup by timing imports hierarchically with flamegraph visualization."
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/startup-profiler"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = ">=0.9.0"}
+rich = ">=13.7.0"
+jinja2 = ">=3.1.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.4"
+pytest-mock = ">=3.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+
+[tool.poetry.scripts]
+startup-profiler = "startup_profiler.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --cov=startup_profiler --cov-report=term-missing --cov-report=html"
