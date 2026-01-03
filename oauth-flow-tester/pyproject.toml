@@ -1,0 +1,15 @@
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config -rfsxX"
+minversion = "8.0"
+markers = [
+    "slow: marks potentially slow tests",
+    "serial: marks tests that must run serially",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
