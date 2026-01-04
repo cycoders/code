@@ -1,0 +1,15 @@
+[
+  {
+    "id": 123,
+    "name": "Alice",
+    "scores": [95.5],
+    "active": true
+  },
+  {
+    "id": 456,
+    "name": "Bob",
+    "scores": [],
+    "active": false,
+    "department": "ops"
+  }
+]

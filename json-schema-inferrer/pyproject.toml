@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "json-schema-inferrer"
+dynamic = ["version"]
+description = "Automatically infers high-quality JSON Schemas from sample JSON data"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+dependencies = [
+    "typer",
+    "rich",
+    "jsonschema",
+]
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "ruff",
+]
+
+[project.scripts]
+json-schema-inferrer = "json_schema_inferrer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/json-schema-inferrer"
+Repository = "https://github.com/cycoders/code"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -p no:warnings --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 95
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "W", "I", "UP",
+    "B", "A", "C4", "T20",
+    "ARG", "PTH",
+]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403", "F405"]
+
+[tool.ruff.format]
+quote-style = "double"
+skip-magic-trailing-comma = false
+line-ending = "auto"
