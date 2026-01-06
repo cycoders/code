@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel", "setuptools_scm[toml]>=7.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smtp-catcher"
+dynamic = ["version"]
+description = "Local SMTP catcher for testing email sending"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "aiosmtpd>=2.0.0",
+    "rich-click>=1.7.0",
+]
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-mock>=3.11.0",
+    "pytest-asyncio>=0.21.0",
+]
+[project.scripts]
+smtp-catcher = "smtp_catcher.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/smtp-catcher"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools_scm]
+write_to = "src/smtp_catcher/_version.py"
