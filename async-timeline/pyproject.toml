@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "async-timeline"
+version = "0.1.0"
+description = "Visualizes asyncio task lifecycles with Mermaid Gantt charts and stats"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+maintainers = [{name = "Arya Sianati", email = "arya@example.com"}]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "rich-click>=1.7.1",
+    "mypy>=1.5",
+]
+
+[project.scripts]
+async-timeline = "async_timeline.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/async-timeline"
+Repository = "https://github.com/cycoders/code"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = [
+    "ignore::DeprecationWarning:asyncio",
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = "typer.*"
+disable_error_code = "misc,no-untyped-def"
