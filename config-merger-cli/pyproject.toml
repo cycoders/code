@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "config-merger-cli"
+version = "0.1.0"
+description = "CLI to merge layered config files (JSON/YAML/TOML) with strategies and env overrides"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+  "pyyaml>=6.0.1",
+  "tomlkit>=0.12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4.0",
+  "pytest-cov>=4.1.0",
+  "ruff>=0.1.0",
+]
+
+[project.scripts]
+config-merger-cli = "config_merger_cli.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/config-merger-cli"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+addopts = "-ra --cov=src/config_merger_cli --cov-report=term-missing --cov-report=html"
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "T20", "ARG", "P", "PT", "W", "FLY", "NPY", "SLF", "TID", "AIX", "ISC", "G", "DJ", "C4", "ERA", "PD", "PGH", "PL", "PIE", "TCH", "INP", "RSE", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403"]

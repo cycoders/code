@@ -1,0 +1,8 @@
+service:
+  port: 8080
+  tags: [prod, web]
+  config:
+    timeout: 30
+db:
+  host: localhost
+  pool: 10

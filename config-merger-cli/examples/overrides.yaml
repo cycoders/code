@@ -1,0 +1,9 @@
+service:
+  port: 9090
+  debug: true
+  tags: [api]
+  config:
+    retries: 3
+db:
+  host: postgres
+  port: 5432
