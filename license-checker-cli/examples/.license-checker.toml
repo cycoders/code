@@ -1,0 +1,6 @@
+[policy]
+allowed = ["MIT", "Apache-2.0"]
+risky = ["GPL*"]
+
+[output]
+show-urls = true
