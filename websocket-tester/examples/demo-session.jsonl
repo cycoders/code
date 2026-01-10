@@ -1,0 +1,4 @@
+{"ts":"2025-01-01T00:00:00","direction":"out","payload":{"action":"ping"}}
+{"ts":"2025-01-01T00:00:01","direction":"in","payload":{"action":"pong","server":"echo"}}
+{"ts":"2025-01-01T00:00:02","direction":"out","payload":"Hello WebSocket!"}
+{"ts":"2025-01-01T00:00:03","direction":"in","payload":"Hello WebSocket!"}

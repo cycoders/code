@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "websocket-tester"
+version = "0.1.0"
+description = "Interactive WebSocket client CLI with rich message formatting, session recording/replay, and prompt-based REPL for seamless endpoint testing"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/websocket-tester"
+keywords = ["websocket", "cli", "tester", "debug", "rich"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Debuggers",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = ">=13.7.0"
+websockets = ">=12.0"
+prompt-toolkit = ">=3.0.43"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-asyncio = "^0.23.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+websocket-tester = "websocket_tester.cli:app"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = "rich.*"
+disable_error_code = "attr-defined"
