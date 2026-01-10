@@ -1,0 +1,15 @@
+rules:
+  - type: regex
+    pattern: "^IMG_\\d{4}_?"
+    replacement: "photo"
+    ignorecase: true
+  - type: counter
+    fmt: '{:03d}'
+    position: prefix
+    start: 1
+  - type: timestamp
+    fmt: '%Y-%m-%d_'
+    stat: mtime
+    position: prefix
+  - type: suffix
+    value: '.optimized'

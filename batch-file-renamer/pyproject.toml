@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "batch-file-renamer"
+dynamic = ["version"]
+description = "Batch renames files using chained rules with previews and undo"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+  "typer[all]",
+  "rich>=13.0.0",
+  "PyYAML>=6.0",
+]
+
+[project.scripts]
+batch-file-renamer = "batch_file_renamer.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/batch-file-renamer"
+Repository = "https://github.com/cycoders/code.git"
+Changelog = "https://github.com/cycoders/code/blob/main/batch-file-renamer/README.md"
