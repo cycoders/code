@@ -1,0 +1,19 @@
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config -rA"
+testpaths = ["tests"]
+pythonpath = ["src"]
+minversion = "7.0"
+filterwarnings = [
+    "ignore::pytest.PytestConfigWarning",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m "not slow"')",
+]
+
+[tool.typer]
+rich_markup_mode = "rich"
