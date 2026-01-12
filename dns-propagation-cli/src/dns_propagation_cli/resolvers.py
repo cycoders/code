@@ -1,0 +1,22 @@
+RESOLVERS = [
+    {"name": "Google Primary", "ip": "8.8.8.8", "location": "US"},
+    {"name": "Google Secondary", "ip": "8.8.4.4", "location": "US"},
+    {"name": "Cloudflare Primary", "ip": "1.1.1.1", "location": "Global"},
+    {"name": "Cloudflare Secondary", "ip": "1.0.0.1", "location": "Global"},
+    {"name": "Quad9", "ip": "9.9.9.9", "location": "US"},
+    {"name": "Quad9 Secure", "ip": "9.9.9.11", "location": "US"},
+    {"name": "OpenDNS Primary", "ip": "208.67.222.222", "location": "US"},
+    {"name": "OpenDNS Fallback", "ip": "208.67.220.220", "location": "US"},
+    {"name": "Level3 Primary", "ip": "4.2.2.1", "location": "US"},
+    {"name": "Level3 Secondary", "ip": "4.2.2.2", "location": "US"},
+    {"name": "Comodo Secure", "ip": "8.26.56.26", "location": "US"},
+    {"name": "Comodo Secure2", "ip": "8.20.247.20", "location": "US"},
+    {"name": "CleanBrowsing", "ip": "185.228.168.9", "location": "Global"},
+    {"name": "CleanBrowsing2", "ip": "185.228.168.10", "location": "Global"},
+    {"name": "AdGuard", "ip": "94.140.14.14", "location": "RU"},
+    {"name": "AdGuard2", "ip": "94.140.15.15", "location": "RU"},
+    {"name": "NextDNS", "ip": "45.90.28.0", "location": "Global"},
+    {"name": "Verisign", "ip": "64.6.64.6", "location": "US"},
+    {"name": "Verisign2", "ip": "64.6.65.6", "location": "US"},
+    {"name": "CyberGhost", "ip": "8.8.8.8", "location": "RO"},  # Note: placeholder, adjust if needed
+]
