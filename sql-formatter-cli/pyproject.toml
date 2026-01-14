@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sql-formatter-cli"
+version = "0.1.0"
+description = "Universal SQL formatter CLI supporting multiple dialects"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Code Generators",
+  "Topic :: Text Processing",
+]
+requires-python = ">=3.11"
+keywords = ["sql", "formatter", "cli", "sqlglot", "database"]
+dependencies = [
+  "sqlglot>=25.5.1",
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+  "tomli>=2.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.6.0",
+]
+
+[project.scripts]
+sqlfmt = "sql_formatter_cli.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/sql-formatter-cli"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+  "ignore::DeprecationWarning:sqlglot.*",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "ARG", "P", "PT", "W", "C4", "T20", "DJ", "ISC"]
+ignore = ["DJ003"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403", "F405"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

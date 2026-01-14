@@ -1,0 +1,6 @@
+[sql-formatter]
+dialect = "postgres"
+line_length = 100
+indent = "  "
+keyword_case = "UPPER"
+normalize = true
