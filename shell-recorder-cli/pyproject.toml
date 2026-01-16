@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "shell-recorder-cli"
+description = "Records timed terminal output from interactive shell sessions for live replay, markdown export, PII redaction, and selective line deletion"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+version = "0.1.0"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/cycoders/code/tree/main/shell-recorder-cli"
+keywords = ["cli", "terminal", "record", "replay", "shell"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.0"
+pexpect = "^5.0.0"
+
+[tool.poetry.scripts]
+shell-recorder-cli = "shell_recorder_cli.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+ruff = "^0.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
