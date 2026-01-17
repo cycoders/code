@@ -1,0 +1,60 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/
+*.egg-info/
+.installed.cfg
+*.egg
+hypothesis/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.coverage.*
+*.mo
+*.pot
+.pickle
+coverage.xml
+nosetests.xml
+
+# venv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.spyderproject
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Poetry
+poetry.lock
+
+# Config (user)
+.git-worktree-manager/
+config.toml

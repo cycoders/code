@@ -1,0 +1,9 @@
+[core]
+# Base directory template for new worktrees
+base_dir = "./worktrees/{name}"
+
+# Default start-point for new branches
+default_from = "origin/main"
+
+# Days inactive before considering stale
+stale_days = 30

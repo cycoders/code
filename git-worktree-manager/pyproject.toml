@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "git-worktree-manager"
+version = "0.1.0"
+description = "Streamlines Git worktree creation, navigation, status tracking, and cleanup with intuitive CLI and rich visualizations"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/git-worktree-manager"
+keywords = ["git", "worktree", "cli", "developer-tools", "devops"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Version Control",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {version = ">=0.9.0", extras = ["all"]}
+rich = ">=13.4.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0"
+pytest-mock = ">=3.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+git-worktree-manager = "git_worktree_manager.cli:app"
