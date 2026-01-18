@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "build-context-slimmer"
+version = "0.1.0"
+description = "Automatically analyzes Docker build contexts to detect unused files and generates optimized .dockerignore rules slashing build times"
+authors = [{name = "Arya Sianati"}]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4",
+]
+
+[project.scripts]
+build-context-slimmer = "build_context_slimmer.cli:app"
+
+[tool.black]
+target-version = ['py311']
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra --cov=build_context_slimmer --cov-report=term-missing"
+testpaths = ["tests"]
