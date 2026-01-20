@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csv-profiler"
+version = "0.1.0"
+description = "Memory-efficient CLI profiler for CSV files"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+    "polars>=1.8.0",
+    "jinja2>=3.1.4",
+]
+
+[project.scripts]
+csv-profiler = "csv_profiler.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/csv-profiler"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false

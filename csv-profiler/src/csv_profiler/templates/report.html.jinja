@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Profiler Report - {{ data.file }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .anomaly { background-color: #ffebee; }
+        pre { background: #f4f4f4; padding: 10px; overflow: auto; }
+        h1 { color: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>📊 CSV Profiler Report</h1>
+    <p><strong>File:</strong> {{ data.file }} | <strong>Rows scanned:</strong> {{ data.overview.rows }} | <strong>Version:</strong> {{ version }}</p>
+
+    <h2>Overview</h2>
+    <table>
+        <tr><th>Rows</th><td>{{ data.overview.rows }}</td></tr>
+        <tr><th>Columns</th><td>{{ data.overview.cols }}</td></tr>
+        <tr><th>Duplicates %</th><td>{{ data.overview.dupe_pct }}%</td></tr>
+    </table>
+
+    <h2>Columns</h2>
+    <table>
+        <tr><th>Column</th><th>Null %</th><th>Unique %</th><th>Type</th><th>Top Value</th></tr>
+        {% for col, info in data.columns.items() %}
+        <tr {% if data.anomalies.columns[col] %}class="anomaly"{% endif %}>
+            <td>{{ col }}</td>
+            <td>{{ info.null_pct }}%</td>
+            <td>{{ info.unique_pct }}%</td>
+            <td>{{ info.dtype }}</td>
+            <td>{{ info.top_values[0] if info.top_values else '-' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if data.anomalies.global or data.anomalies.columns.values() | select('__len__ > 0') | list %}
+    <h2>🚨 Anomalies</h2>
+    <ul>
+        {% for col, issues in data.anomalies.columns.items() if issues %}
+        <li><strong>{{ col }}:</strong> {{ issues | join(', ') }}</li>
+        {% endfor %}
+        {% for issue in data.anomalies.global %}<li>{{ issue }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>📋 Inferred Schema</h2>
+    <pre>{{ data.schema | tojson(indent=2) }}</pre>
+</body>
+</html>
