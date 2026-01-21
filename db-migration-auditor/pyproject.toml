@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "db-migration-auditor"
+version = "0.1.0"
+description = "Audits SQL database migration scripts for risks and best practices"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/db-migration-auditor"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = ">=0.12"
+rich = ">=13.7"
+sqlglot = ">=25.7"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=8.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --tb=short"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
