@@ -1,0 +1,16 @@
+benchmarks:
+  - name: fast-api
+    command: python
+    args: ['app.py', '--load-test']
+    iterations: 200
+    timeout: 60
+    metrics: [wall_time, peak_memory]
+  - name: npm-build
+    command: npm
+    args: ['run', 'build']
+    iterations: 10
+    timeout: 300
+  - name: db-bulk-insert
+    command: psql
+    args: ['-f', 'bulk.sql']
+    iterations: 20

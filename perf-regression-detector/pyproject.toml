@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "perf-regression-detector"
+dynamic = ["version"]
+description = "CLI tool that detects performance regressions by benchmarking commands/scripts against Git-tracked baselines"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer[all]",
+    "rich",
+    "psutil",
+    "pyyaml",
+    "gitpython",
+]
+requires-python = ">=3.11"
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-mock",
+]
+[project.scripts]
+perf-regression-detector = "perf_regression_detector.main:cli"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/perf-regression-detector"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/perf_regression_detector"]
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+filterwarnings = [
+    "ignore::DeprecationWarning:gitpython",
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = "typer.*"
+disable_error_code = "attr-defined"
