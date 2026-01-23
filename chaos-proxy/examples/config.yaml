@@ -1,0 +1,8 @@
+target_host: "httpbin.org"
+target_port: 80
+local_port: 8080
+latency: "150ms"
+jitter: "30ms"
+loss: 0.015
+dup: 0.001
+bw: "200"

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chaos-proxy"
+version = "0.1.0"
+dynamic = ["version"]
+description = "TCP proxy with network impairments for resilience testing"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+maintainers = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+keywords = ["proxy", "chaos", "network", "latency", "testing", "tcp"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Networking",
+]
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/chaos-proxy"
+Repository = "https://github.com/cycoders/code"
+Changelog = "https://github.com/cycoders/code/blob/main/chaos-proxy/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest >=7.4",
+    "pytest-asyncio >=0.23",
+]
+
+[project.scripts]
+chaos-proxy = "chaos_proxy.cli:main"
+
+[tool.hatch.version]
+path = "src/chaos_proxy/__init__.py"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+
+[tool.rich]
