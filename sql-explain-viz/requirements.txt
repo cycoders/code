@@ -1,0 +1,4 @@
+typer==0.12.5
+rich==13.9.3
+graphviz==0.20.3
+pytest==8.3.2

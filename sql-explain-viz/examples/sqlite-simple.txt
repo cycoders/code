@@ -1,0 +1,3 @@
+QUERY PLAN
+|--SCAN TABLE users
+`--SEARCH TABLE posts USING COVERING INDEX idx_user_id (user_id=?)

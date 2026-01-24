@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "sql-explain-viz"
+version = "0.1.0"
+description = "Transforms SQL EXPLAIN/ANALYZE output into Rich trees, Mermaid diagrams, and SVGs for PostgreSQL, SQLite, and MySQL query optimization"
+readme = "README.md"
+authors = ["Arya Sianati <arya@example.com>"]
+license = "MIT"
+repository = "https://github.com/cycoders/code/tree/main/sql-explain-viz"
+packages = [{include = "sql_explain_viz", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = "^0.12.5"
+rich = "^13.9.3"
+graphviz = "^0.20.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
