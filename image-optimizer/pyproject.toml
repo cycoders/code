@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "image-optimizer"
+version = "0.1.0"
+description = "Compresses and converts images to modern WebP/AVIF formats with rich terminal previews"
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "Pillow>=10.3.0",
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "mypy>=1.5",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+image-optimizer = "image_optimizer.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/image-optimizer"
+Repository = "https://github.com/cycoders/code"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:PIL.*"
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "T20", "DJ", "ARG", "PTH"]
+ignore = ["DJ003"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403", "F405"]
