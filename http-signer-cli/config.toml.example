@@ -1,0 +1,12 @@
+[profiles.aws-prod]
+aws4.access_key = "AKIA..."
+aws4.secret_key = "wJal..."
+aws4.default_region = "us-east-1"
+aws4.default_service = "s3"
+aws4.session_token = "FQo..."
+
+[profiles.twitter]
+oauth1.consumer_key = "xvz1..."
+oauth1.consumer_secret = "L8qq..."
+oauth1.access_token = "3707..."
+oauth1.token_secret = "Lsww..."
