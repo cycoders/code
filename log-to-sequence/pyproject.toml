@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "log-to-sequence"
+version = "0.1.0"
+description = "Generates Mermaid sequence diagrams from structured JSONL logs"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/cycoders/code/tree/main/log-to-sequence"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = "^0.12.1"
+pydantic = "^2.8.2"
+rich = "^13.9.3"
+pyyaml = "^6.0.2"
+python-dateutil = "^2.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

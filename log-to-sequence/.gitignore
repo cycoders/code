@@ -1,0 +1,38 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.env
+.venv
+
+# Testing
+.pytest_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis
+
+# Packaging
+dist/
+build/
+*.egg-info/
+*.eggs/
+
+# Output
+output/
+logs/
+*.md
+*.mmd
+
+tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

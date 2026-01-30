@@ -1,0 +1,3 @@
+{"timestamp": "2024-01-01T10:00:00Z", "trace_id": "trace-001", "span_id": "root-1", "service": "frontend", "name": "handle /users", "duration_ms": 150}
+{"timestamp": "2024-01-01T10:00:00.5Z", "trace_id": "trace-001", "span_id": "api-1", "parent_span_id": "root-1", "service": "api-gateway", "name": "forward /users", "duration_ms": 100}
+{"timestamp": "2024-01-01T10:00:01Z", "trace_id": "trace-001", "span_id": "db-1", "parent_span_id": "api-1", "service": "database", "name": "SELECT users", "duration_ms": 40}

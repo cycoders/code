@@ -1,0 +1,12 @@
+fields:
+  timestamp: '@timestamp'
+  trace_id: 'trace.id'
+  span_id: 'span.id'
+  parent_span_id: 'parent.span.id'
+  service: 'service.name'
+  name: 'name'
+  duration_ms: 'duration_us'
+
+service_aliases:
+  'frontend-service': 'fe'
+  'api-gateway': 'api'
