@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webhook {{ webhook.id }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-8">
+    <h1 class="text-3xl">{{ webhook.id }} {{ '✅ Verified' if webhook.signature_verified else '❌ Unverified' }}</h1>
+    <pre id="json">{{ webhook.body }}</pre>
+    <button onclick="copy()">Copy cURL</button>
+    <script>
+    function copy() {
+        navigator.clipboard.writeText(JSON.stringify({{ webhook|tojson }}, null, 2));
+    }
+    </script>
+</body>
+</html>

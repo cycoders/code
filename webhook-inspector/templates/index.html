@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webhook Inspector</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>pre { background: #1f1f1f; color: #f8f8f2; }</style>
+</head>
+<body class="bg-gray-900 text-white p-8">
+    <h1 class="text-4xl font-bold mb-8">🚀 Webhook Inspector</h1>
+    <div class="grid gap-4 md:grid-cols-2">
+        {% for w in recent %}
+        <div class="border p-4 rounded-lg {{ 'border-green-500' if w.signature_verified else 'border-red-500' }}">
+            <h3>ID: {{ w.id }} ({{ w.provider|upper }})</h3>
+            <p>{{ w.timestamp }}</p>
+            <a href="/webhook/{{ w.id }}" class="text-blue-400">Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
