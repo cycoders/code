@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "build-log-analyzer"
+version = "0.1.0"
+description = "Analyzes build and CI logs to extract timings, errors, warnings, and regressions."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "typer >= 0.9.0",
+  "rich >= 13.0.0",
+  "pydantic >= 2.0.0",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest >= 7.0.0",
+]
+
+[project.scripts]
+build-log-analyzer = "build_log_analyzer.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
