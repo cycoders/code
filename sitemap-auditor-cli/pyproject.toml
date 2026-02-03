@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sitemap-auditor-cli"
+dynamic = ["version"]
+version = "0.1.0"
+description = "High-performance CLI for auditing sitemaps: broken links, performance, robots compliance"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "typer",
+  "rich",
+  "aiohttp",
+  "lxml",
+  "pydantic",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-asyncio",
+  "httpx",
+  "ruff",
+]
+
+[project.scripts]
+sitemap-auditor-cli = "sitemap_auditor_cli.main:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sitemap_auditor_cli"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
