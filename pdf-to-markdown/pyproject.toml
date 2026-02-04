@@ -1,0 +1,27 @@
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-to-markdown"
+version = "0.1.0"
+description = "High-fidelity PDF to Markdown converter"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pdfplumber>=0.10.3",
+  "typer[all]>=0.12.0",
+  "rich>=13.7.0",
+]
+[project.optional-dependencies]
+test = ["pytest>=7.4.0"]
+
+[project.scripts]
+pdf2md = "pdf_to_markdown.__main__:app"
