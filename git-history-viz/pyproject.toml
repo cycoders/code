@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "git-history-viz"
+dynamic = ["version"]
+description = "Interactive Git history visualizer using Mermaid diagrams"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --cov=src/git_history_viz --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["src/git_history_viz"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:"
+]

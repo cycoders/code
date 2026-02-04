@@ -1,0 +1,8 @@
+gitpython
+
+typer
+rich
+jinja2
+
+pytest
+pytest-cov
