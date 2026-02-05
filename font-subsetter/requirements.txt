@@ -1,0 +1,5 @@
+typer[all]==0.12.5
+rich==13.9.3
+fonttools[woff]==4.53.1
+beautifulsoup4==4.12.3
+cssutils==2.9.0
