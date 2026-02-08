@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "local-service-hub"
+version = "0.1.0"
+description = "Orchestrates local dev services with Docker Compose"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+keywords = ["cli", "docker", "devops", "services"]
+dependencies = [
+  "typer==0.12.5",
+  "rich==13.9.3",
+  "Jinja2==3.1.4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "pytest-mock",
+  "rich",
+]
+
+[project.scripts]
+local-service-hub = "local_service_hub.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/local-service-hub"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/local_service_hub",
+    "templates",
+    "tests",
+    "pyproject.toml",
+    "README.md",
+    "LICENSE",
+]

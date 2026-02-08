@@ -1,0 +1,7 @@
+# Example overrides
+[services.postgres]
+POSTGRES_PASSWORD = "strongpass123"
+POSTGRES_DB = "myapp"
+
+[services.minio]
+MINIO_ROOT_PASSWORD = "strongsecret"

@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+{% for name, svc in services.items() -%}
+  {{ name }}:
+    image: {{ svc.image | tojson }}
+    {% if svc.volumes -%}
+    volumes:
+    {%- for vol in svc.volumes %}
+      - {{ vol | tojson }}
+    {%- endfor %}
+    {% endif -%}
+    {% if svc.container_ports -%}
+    ports:
+    {%- for port in svc.container_ports %}
+      - {{ port | tojson }}
+    {%- endfor %}
+    {% endif -%}
+    {% if svc.environment -%}
+    environment:
+    {%- for k, v in svc.environment.items() %}
+      {{ k }}: {{ v | tojson }}
+    {%- endfor %}
+    {% endif -%}
+    {% if svc.get('command') -%}
+    command: {{ svc.command | tojson }}
+    {% endif -%}
+    healthcheck:
+      test: {{ svc.healthcheck.test | tojson }}
+      interval: {{ svc.healthcheck.interval | tojson }}
+      timeout: {{ svc.healthcheck.timeout | tojson }}
+      retries: {{ svc.healthcheck.retries | tojson }}
+{% endfor %}
+
+volumes:
+{% for name, svc in services.items() -%}
+{%- for vol in svc.volumes %}
+  {{ vol.split(':')[0] }}:
+{%- endfor %}
+{%- endfor %}
