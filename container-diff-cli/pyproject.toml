@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "container-diff-cli"
+version = "0.1.0"
+description = "Layer-by-layer diffs for Docker and OCI container images"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/container-diff-cli"
+packages = [{include = "container_diff_cli", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = ">=0.12.5"}
+rich = ">=13.7.1"
+docker = ">=7.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0"
+pytest-mock = ">=3.14.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+container-diff-cli = "container_diff_cli.__main__:main"
