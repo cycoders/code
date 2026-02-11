@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "merge-risk-analyzer"
+version = "0.1.0"
+description = "Predicts Git merge conflict risks by analyzing change overlaps, historical conflicts, and code churn for proactive branch management"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/merge-risk-analyzer"
+keywords = ["git", "merge", "conflict", "risk", "analyzer", "cli"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Version Control",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = ">=0.9.0"}
+rich = ">=13.0.0"
+GitPython = ">=3.1.40"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0"
+pytest-mock = ">=3.14"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+merge-risk-analyzer = "merge_risk_analyzer.cli:app"
