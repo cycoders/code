@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "stacktrace-collapser"
+version = "0.1.0"
+description = "Collapses verbose stack traces from Python, Node.js, Java, and Go into compact, colorized, interactive output for faster debugging."
+authors = ["Arya Sianati <arya.sianati@example.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/stacktrace-collapser"
+keywords = ["cli", "debugging", "stacktrace", "sentry", "logs"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Utilities",
+]
+
+packages = [{include = "stacktrace_collapser", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.9"}
+rich = ">=13.0.0"
+pydantic = ">=2.0"
+tomli = "^2.0.1"
+jinja2 = "^3.1"
+platformdirs = "^4"
+
+[tool.poetry.scripts]
+stacktrace-collapser = "stacktrace_collapser.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-cov = "^5.0"
+ruff = "^0.6"
+pre-commit = "^3.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+addopts = "-ra --cov=src/stacktrace_collapser --cov-report=term-missing"
+testpaths = ["tests"]
