@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "web-vitals-cli"
+version = "0.1.0"
+description = "Polished CLI wrapper for Lighthouse to audit Core Web Vitals and page performance"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/web-vitals-cli"
+keywords = ["webperf", "lighthouse", "core-web-vitals", "cli", "performance"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.0"
+pydantic = "^2.7.0"
+jinja2 = "^3.1.0"
+tomlkit = "^0.12.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-mock = "^3.14.0"
+black = "^24.0"
+ruff = "^0.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+web-vitals-cli = "web_vitals_cli.main:app"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning:",
+]
+markers = [
+    "unit: unit tests",
+    "integration: integration tests",
+]
