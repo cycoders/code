@@ -1,0 +1,40 @@
+Screen {
+    layout: horizontal;
+}
+
+Horizontal#main-container {
+    height: 1fr;
+    margin: 1;
+}
+
+Tree#schema-tree {
+    width: 30%;
+    max-width: 50ch;
+    border-right: tall solid $primary;
+    padding: 1;
+}
+
+Vertical#content {
+    width: 1fr;
+}
+
+DataTable#results-table {
+    height: 1fr;
+    border-bottom: round $secondary;
+}
+
+Input#query-input {
+    height: auto;
+    max-height: 8;
+    border-top: thick solid $accent;
+    padding: 1;
+}
+
+Tree > TreeNode[has-focus] {
+    background: $accent 50%;
+    color: $text;
+}
+
+DataTable {
+    overflow-y: scroll;
+}

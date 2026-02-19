@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "db-explorer-tui"
+version = "0.1.0"
+description = "Interactive TUI database explorer for SQLite, PostgreSQL, and MySQL"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/db-explorer-tui"
+packages = [{include = "db_explorer_tui", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+textual = {extras = ["dev"], version = "^0.82.1"}
+databases = {extras = ["sqlite", "mysql", "postgresql"], version = "^0.8.0"}
+sqlparse = "^0.5.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+pytest-asyncio = "^0.24.0"
+pytest-mock = "^3.14.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+db-explorer-tui = "db_explorer_tui.__main__:main"
