@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "sql-transpiler-cli"
+version = "0.1.0"
+description = "Transpiles SQL queries between dialects like PostgreSQL to MySQL with validation and batch processing"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/sql-transpiler-cli"
+keywords = ["sql", "transpile", "dialect", "postgres", "mysql", "cli"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+sqlglot = ">=25.5.0"
+typer = {extras = ["all"], version = ">=0.9.0"}
+rich = ">=13.7.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0"
+pytest-cov = ">=5.0"
+ruff = ">=0.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+sql-transpiler-cli = "sql_transpiler_cli.main:app"
+
+[tool.ruff]
+line-length = 100
+
+targets = ["py311"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "T20", "ARG", "P", "PT", "W", "FLY", "NPY", "PD", "PGH", "PL", "RSE", "RUF", "ERA", "DJ", "DTZ"]
+ignore = ["T201", "B008"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-q --cov=sql_transpiler_cli --cov-report=term-missing --cov-fail-under=95"
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
