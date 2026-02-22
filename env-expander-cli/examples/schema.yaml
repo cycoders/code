@@ -1,0 +1,9 @@
+required:
+  - DB_HOST
+  - DB_PORT
+  - DB_URL
+patterns:
+  DB_HOST: '^[a-z0-9.-]+$'
+types:
+  DB_PORT: int
+  FLAG: bool

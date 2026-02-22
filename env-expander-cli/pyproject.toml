@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools >= 61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "env-expander-cli"
+version = "0.1.0"
+description = "CLI to expand interpolated env vars with cycle detection, schema validation & diffs"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+requires-python = ">=3.11"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities",
+]
+dependencies = [
+  "typer >= 0.12.0",
+  "rich >= 13.7.0",
+  "python-dotenv >= 1.0.0",
+  "pyyaml >= 6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest >= 7.4.0",
+]
+
+[project.scripts]
+env-expander-cli = "env_expander_cli.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/env-expander-cli"
+Repository = "https://github.com/cycoders/code.git"
