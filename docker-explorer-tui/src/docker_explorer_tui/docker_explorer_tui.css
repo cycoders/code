@@ -1,0 +1,51 @@
+Screen {
+  background: $background;
+}
+
+DataTable {
+  height: 1fr;
+  border: tall $primary 80%;
+}
+
+DataTable > .table--cursor {
+  background: $accent 80%;
+}
+
+Log {
+  height: 1fr;
+  border: round $secondary;
+  background: black;
+  color: $text-muted;
+  overflow-y: auto;
+}
+
+Static {
+  height: 1fr;
+  padding: 2;
+  border: heavy $primary;
+}
+
+#button-bar {
+  dock: bottom;
+  height: 3;
+  padding: 1;
+}
+
+Button {
+  margin: 0 1;
+  width: auto;
+}
+
+#search-input {
+  dock: top;
+  height: 1;
+  padding: 1;
+}
+
+TabPane {
+  height: 1fr;
+}
+
+.search-highlight {
+  text-style: bold $yellow;
+}
