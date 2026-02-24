@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "har-to-openapi"
+dynamic = ["version"]
+version = "0.1.0"
+description = "Convert HAR files to OpenAPI 3.1 specifications"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Arya Sianati"},
+]
+dependencies = [
+  "typer",
+  "rich",
+  "pydantic",
+  "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-cov",
+]
+
+[project.scripts]
+har-to-openapi = "har_to_openapi.__main__:main"
