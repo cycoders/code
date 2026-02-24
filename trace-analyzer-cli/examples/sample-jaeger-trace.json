@@ -1,0 +1,58 @@
+[
+  {
+    "traceID": "0000000000000001",
+    "spans": [
+      {
+        "traceID": "0000000000000001",
+        "spanID": "0000000000000001",
+        "parentSpanID": null,
+        "operationName": "frontend/request",
+        "startTime": 1650998400000000,
+        "duration": 1250000,
+        "tags": {
+          "service.name": "frontend",
+          "http.method": "GET"
+        },
+        "logs": []
+      },
+      {
+        "traceID": "0000000000000001",
+        "spanID": "0000000000000002",
+        "parentSpanID": "0000000000000001",
+        "operationName": "backend/api",
+        "startTime": 1650998400100000,
+        "duration": 850000,
+        "tags": {
+          "service.name": "backend",
+          "error": "false"
+        },
+        "logs": []
+      },
+      {
+        "traceID": "0000000000000001",
+        "spanID": "0000000000000003",
+        "parentSpanID": "0000000000000002",
+        "operationName": "db/slow-query",
+        "startTime": 1650998400180000,
+        "duration": 650000,
+        "tags": {
+          "service.name": "db",
+          "error": "true"
+        },
+        "logs": []
+      },
+      {
+        "traceID": "0000000000000001",
+        "spanID": "0000000000000004",
+        "parentSpanID": "0000000000000001",
+        "operationName": "cache/miss",
+        "startTime": 1650998400120000,
+        "duration": 150000,
+        "tags": {
+          "service.name": "cache"
+        },
+        "logs": []
+      }
+    ]
+  }
+]
