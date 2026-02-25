@@ -1,0 +1,40 @@
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "ssh-config-visualizer"
+version = "0.1.0"
+description = "Visualizes complex SSH configurations as graphs, validates setups, and tests connectivity"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/ssh-config-visualizer"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = ">=0.12.5"
+rich = {extras = ["stdout"], version = ">=13.7.0"}
+paramiko = ">=3.4.0"
+networkx = ">=3.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0"
+pytest-cov = ">=5.0"
+ruff = ">=0.6.0"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --cov=src/ssh_config_visualizer --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:paramiko.*",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "C4", "ARG", "PTH", "ERA", "PD", "PGH", "PL", "PIE", "ISC", "T20", "DJ", "INP", "G", "YTT", "ANN101", "ANN102", "RSE", "BLE", "FBT"]
+ignore = ["E501"]
