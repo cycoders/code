@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-readme-generator"
+version = "0.1.0"
+description = "Intelligently generates a professional README.md by scanning project files and detecting tech stack"
+readme = "README.md"
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.12.5",
+    "rich>=13.7.1",
+    "Jinja2>=3.1.2",
+    "tomlkit>=0.12.4",
+]
+
+[project.scripts]
+smart-readme-generator = "smart_readme_generator.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.2",
+    "pytest-mock>=3.14.0",
+    "black>=24.4.2",
+    "pre-commit>=3.7.1",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+markers = [
+    "slow: marks slow tests",
+    "serial: marks tests that must run serially",
+]
+
+[tool.black]
+target-version = ['py311']

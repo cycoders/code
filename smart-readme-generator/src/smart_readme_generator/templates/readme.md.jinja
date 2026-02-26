@@ -1,0 +1,68 @@
+# {{ project_name }}
+
+{% for badge in badges %}{{ badge }}{% endfor %}
+
+## Overview
+
+{{ description }}
+
+## Features
+
+{% for feature in features %}- {{ feature }}
+{% endfor %}{% if has_tests %}
+- 🧪 Comprehensive test suite{% endif %}{% if has_ci %}
+- 🔄 CI/CD pipelines{% endif %}{% if not features and not has_tests and not has_ci %}
+
+*(Add your features here)*{% endif %}
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+{% for stack in stacks %}
+### {{ stack.replace('-', ' ').title() }}
+
+{{ install_cmds[stack] | replace('\\n', '\n') }}
+
+{% endfor %}{% if not stacks %}
+
+*(Add installation instructions for your stack)*
+
+{% endif %}
+
+## Usage
+
+{% for stack, example in usage_examples.items() %}
+### {{ stack.replace('-', ' ').title() }}
+
+```{% set lang = stack.split('-')[0] if '-' in stack else stack %}{% if lang == 'python' %}python{% elif lang == 'nodejs' or lang == 'react' or lang == 'nextjs' or lang == 'vue' or lang == 'express' %}jsx{% elif lang == 'rust' %}rust{% elif lang == 'go' %}go{% else %}{{ lang }}{% endif %}
+{{ example }}
+```
+
+{% endfor %}{% if not stacks %}
+
+*(Add usage examples)*
+
+{% endif %}
+
+## Contributing
+
+1. Fork + clone
+2. Create feature branch (`git checkout -b feat/my-feature`)
+3. Commit (`git commit -m 'feat: add my feature'`)
+4. Push + PR
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## License
+
+MIT License &copy; 2025 Arya Sianati.
+
+---
+
+[![Stars](https://img.shields.io/github/stars/cycoders/code?style=social)](https://github.com/cycoders/code)
