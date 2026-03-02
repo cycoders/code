@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61", "wheel", "setuptools_scm[toml]>=7"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "port-scanner-cli"
+dynamic = ["version"]
+description = "Blazing-fast port scanner for local networks"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "typer==0.12.5",
+  "rich==13.9.3",
+]
+requires-python = ">=3.11"
+
+[project.scripts]
+port-scanner-cli = "port_scanner_cli.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/port-scanner-cli"
+Repository = "https://github.com/cycoders/code"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "T20", "ARG", "PTH"]
+ignore = ["T201"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.format]
+quote-style = "double"
