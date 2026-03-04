@@ -1,0 +1,27 @@
+[package]
+name = "file-deduper-cli"
+version = "0.1.0"
+edition = "2021"
+authors = ["Arya Sianati <arya@example.com>"]
+description = "Lightning-fast duplicate file finder with interactive TUI"
+license = "MIT"
+repository = "https://github.com/cycoders/code/tree/main/file-deduper-cli"
+keywords = ["cli", "duplicate", "files", "tui", "dedupe"]
+categories = ["command-line-utilities", "filesystem"]
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+crossterm = "0.28"
+ratatui = "0.28"
+rayon = "1.10"
+blake3 = "1.5"
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+ignore = "0.4"
+walkdir = "2.5"
+unicode-width = "0.1"
+
+[dev-dependencies]
+tempfile = "3.13"
+assert_fs = "1.1"
