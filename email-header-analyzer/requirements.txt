@@ -1,0 +1,4 @@
+typer==0.12.5
+rich==13.9.3
+dnspython==2.7.0
+dkimpy==1.0.5
