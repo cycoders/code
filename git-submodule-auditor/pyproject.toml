@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "git-submodule-auditor"
+version = "0.1.0"
+description = "Comprehensive Git submodule auditor for security risks, outdated modules, cycles, and update recommendations"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/git-submodule-auditor"
+keywords = ["git", "submodule", "audit", "security", "cli"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.12.5"}
+rich = "^13.7.1"
+gitpython = "^3.1.43"
+pydantic = "^2.7.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+pytest-mock = "^3.14.0"
+
+[tool.poetry.scripts]
+git-submodule-auditor = "git_submodule_auditor.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
