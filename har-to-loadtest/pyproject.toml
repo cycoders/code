@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "har-to-loadtest"
+dynamic = ["version"]
+version = "0.1.0"
+description = "Transforms HAR files into load test scripts for k6, Locust, and Artillery"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+maintainers = [{name = "Arya Sianati", email = "arya@example.com"}]
+keywords = ["har", "loadtest", "k6", "locust", "artillery", "performance"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "typer",
+    "rich",
+    "Jinja2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/har-to-loadtest"
+Repository = "https://github.com/cycoders/code"
+
+[project.scripts]
+har-to-loadtest = "har_to_loadtest.cli:main"
+
+[tool.hatch.version]
+path = "src/har_to_loadtest/__init__.py"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
