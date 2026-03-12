@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "osv-dep-scanner"
+version = "0.1.0"
+description = "Unified CLI vulnerability scanner for package lockfiles across npm, pip/poetry, cargo using Google's OSV API"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/osv-dep-scanner"
+keywords = ["security", "vulnerability", "osv", "lockfile", "npm", "cargo", "pip"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Security",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.0"
+requests = "^2.32.0"
+packaging = "^24.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-mock = "^3.14.0"
+requests-mock = "^1.12.1"
+black = "^24.8.0"
+ruff = "^0.6.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+osv-dep-scanner = "osv_dep_scanner.cli:app"
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+    "ignore::pytest.PytestConfigWarning:.*fixture.*",
+]
+markers = [
+    "slow: marks tests as slow",
+    "online: marks tests requiring network",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "Q", "I", "N", "ERA", "SIM"]
+ignore = ["ERA001"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F403", "F405"]
