@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "monorepo-dep-aligner"
+dynamic = ["version"]
+description = "Detects and aligns inconsistent dependency versions across a monorepo's pyproject.toml files"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+  {name = "Arya Sianati", email = "arya@cycoders.com"},
+]
+dependencies = [
+  "typer >= 0.12.5",
+  "rich >= 13.7.1",
+  "tomlkit >= 0.12.7",
+  "packaging >= 24.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest >= 8.3.2",
+  "ruff >= 0.6.8",
+]
+
+[project.scripts]
+monorepo-dep-aligner = "monorepo_dep_aligner.cli:app"
+
+[tool.hatch.version]
+path = "src/monorepo_dep_aligner/__init__.py"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "T20", "ARG", "PTH"]
+ignore = ["T201"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+log_cli_level = "WARNING"
