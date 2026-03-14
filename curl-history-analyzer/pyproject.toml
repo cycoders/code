@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "curl-history-analyzer"
+version = "0.1.0"
+description = "Analyzes curl --histfile JSONL to reveal API patterns, perf, errors"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/curl-history-analyzer"
+keywords = ["cli", "curl", "api", "performance", "analyzer"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.1"
+pydantic = {extras = ["standard"], version = "^2.8.2"}
+tqdm = "^4.66.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+ruff = "^0.6.8"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+"curl-history-analyzer" = "curl_history_analyzer.cli:main"
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "C4", "ARG", "PTH", "ERA", "PD", "PGH", "PI", "PL", "PT", "PU", "RSE", "RUF", "SIM"]
+ignore = ["E501"]
