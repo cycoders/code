@@ -1,0 +1,7 @@
+{"timestamp":"2024-09-01T10:00:00Z","level":"INFO","duration_ms":45,"user_id":"123","endpoint":"/api/users"}
+{"timestamp":"2024-09-01T10:00:01Z","level":"INFO","duration_ms":52,"user_id":"123","endpoint":"/api/users"}
+{"timestamp":"2024-09-01T10:00:02Z","level":"INFO","duration_ms":48,"user_id":"456","endpoint":"/api/orders"}
+{"timestamp":"2024-09-01T10:00:03Z","level":"ERROR","duration_ms":5200,"user_id":"123","endpoint":"/api/users"}
+{"timestamp":"2024-09-01T10:00:04Z","level":"INFO","duration_ms":55,"user_id":"456","endpoint":"/api/orders"}
+{"timestamp":"2024-09-01T10:00:05Z","level":"INFO","duration_ms":49,"user_id":"123","endpoint":"/api/profile"}
+{"timestamp":"2024-09-01T10:00:06Z","level":"WARN","duration_ms":4800,"user_id":"789","endpoint":"/api/admin"}

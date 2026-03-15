@@ -1,0 +1,9 @@
+fields:
+  - duration_ms
+  - response_bytes
+group_by:
+  - user_id
+  - level
+threshold: 2.5
+method: iqr
+# window_size: 100  # rolling window (future)
