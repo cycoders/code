@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "slowlog-analyzer-cli"
+version = "0.1.0"
+description = "CLI to analyze database slow query logs"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "typer",
+  "rich",
+  "polars",
+  "plotext",
+]
+
+[project.scripts]
+slowlog-analyzer-cli = "slowlog_analyzer_cli.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "ruff",
+  "black",
+]
