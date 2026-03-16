@@ -1,0 +1,6 @@
+name: Bad
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout
+      - run: API_KEY=sk-123

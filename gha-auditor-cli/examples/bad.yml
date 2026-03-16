@@ -1,0 +1,12 @@
+name: Bad Workflow
+
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout  # unpinned
+      - run: echo password=secret123  # hardcoded
+  deploy:
+    permissions:
+      *: write  # broad
+    steps:
+      - uses: actions/checkout@v4  # no token

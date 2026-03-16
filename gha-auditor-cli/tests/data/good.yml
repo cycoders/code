@@ -1,0 +1,9 @@
+name: Good
+permissions: {}
+
+jobs:
+  test:
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
