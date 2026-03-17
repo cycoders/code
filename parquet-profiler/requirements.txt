@@ -1,0 +1,4 @@
+pyarrow>=14.0.0
+typer[all]
+rich
+tqdm
