@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "Order",
+  "fields": [
+    {"name": "user_id", "type": "string"},
+    {"name": "items", "type": {"type": "array", "items": "string"}},
+    {"name": "status", "type": "enum:string"}
+  ],
+  "enum:string": {
+    "type": "enum",
+    "name": "Status",
+    "symbols": ["PENDING", "SHIPPED"]
+  }
+}
