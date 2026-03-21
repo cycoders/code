@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "ab-test-calculator-cli"
+description = "Production-grade CLI for A/B test design and analysis"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+version = "0.1.0"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/cycoders/code/tree/main/ab-test-calculator-cli"
+keywords = ["ab-testing", "statistics", "bayesian", "experiments"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+]
+
+packages = [{include = "ab_test_calculator_cli", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.1"
+numpy = "^1.26.0"
+scipy = "^1.12.0"
+statsmodels = {extras = ["all"], version = "^0.14.1"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+ruff = "^0.1.5"
+black = "^23.12.1"
+mypy = "^1.8.0"
+types-protobuf = "^4.25.0.1"
+
+[tool.poetry.scripts]
+ab-test-calculator-cli = "ab_test_calculator_cli.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra --cov=src/ab_test_calculator_cli --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::FutureWarning:statsmodels",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "Q", "I", "N", "S", "T20", "DJ", "ARG", "PTH"]
+ignore = ["DJ003"]  # typer
+
+[tool.mypy]
+python_version = '3.11'
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = "rich.*"
+disable_error_code = ["attr-defined"]
