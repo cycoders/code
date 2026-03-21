@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: logger
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: logger
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
