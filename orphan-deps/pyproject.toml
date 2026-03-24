@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orphan-deps"
+version = "0.1.0"
+description = "Detect and prune unused Python dependencies"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati"}]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "packaging>=23.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "black>=23.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/orphan-deps"
+Repository = "https://github.com/cycoders/code"
+
+[project.scripts]
+orphan-deps = "orphan_deps.cli:app"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "B", "Q", "I", "N", "UP",
+    "ARG", "PTH", "PL", "RSE", "PD",
+    "PGH", "PIE", "TCH", "DJ", "NPY",
+    "C4", "ERA", "FA", "FAI", "ISC",
+    "INP", "G", "PYI", "T20", "LOG",
+    "SLF", "SIM"
+]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
