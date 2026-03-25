@@ -1,0 +1,24 @@
+import pytest
+from pathlib import Path
+
+@pytest.fixture
+def sample_cert_pem():
+    return """-----BEGIN CERTIFICATE-----
+MIICNTCCAa6gAwIBAgIJAO1234567890MA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+BAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBX
+aWRnaXRzIFB0eSBMdGQwHhcNMjUwMTAxMDAwMDAwWhcNMjYwMTAxMDAwMDAwWjBF
+MQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UECgwYSW50
+ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+APfNNKghyxXg383Y2I1lhIebtQyH7gY+KmH99H/90wE8Q5U+UjY0Q5k4b+wRcXvR
+2zq7+3qKNBMEQGA1UdEwQFMAMBAf8wCwYJKoZIhvcNAQELAgIBADANBgkqhkiG9w
+0BAQsFAAOCAQEA...
+-----END CERTIFICATE-----"""
+
+@pytest.fixture
+def sample_key_pem():
+    return """-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7...\n-----END PRIVATE KEY-----\n"""
+
+@pytest.fixture
+def invalid_pem():
+    return "Invalid PEM data"

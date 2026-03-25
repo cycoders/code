@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytype/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+venv/
+.env
+.env.local
+dist/
+build/
+*.egg-info
+.pip-wheel-metadata

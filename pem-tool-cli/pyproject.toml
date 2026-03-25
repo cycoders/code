@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools >= 45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pem-tool-cli"
+version = "0.1.0"
+description = "Powerful CLI for inspecting, manipulating, validating, and converting PEM files."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "cryptography >= 42.0.1",
+    "rich >= 13.7.0",
+    "typer[all] >= 0.12.0",
+]
+[project.optional-dependencies]
+dev = [
+    "pytest >= 7.4",
+    "pytest-typer",
+    "black >= 23.0",
+    "mypy >= 1.5",
+    "ruff >= 0.1",
+]
+[project.scripts]
+pem-tool-cli = "pem_tool_cli.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/pem-tool-cli"
+Repository = "https://github.com/cycoders/code"
+
+[tool.black]
+target-version = ['py311']
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.ruff]
+target-version = "py311"
