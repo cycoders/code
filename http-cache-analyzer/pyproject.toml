@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "http-cache-analyzer"
+dynamic = ["version"]
+version = "0.1.0"
+description = "Analyzes HTTP cache headers from HAR files or live requests, scores effectiveness, simulates hit rates."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "typer",
+  "rich",
+  "pydantic >= 2.0",
+  "httpx",
+]
+
+[project.scripts]
+http-cache-analyzer = "http_cache_analyzer.__main__:main"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --tb=short"
