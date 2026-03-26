@@ -1,0 +1,9 @@
+base: &base
+  image: nginx
+  ports:
+    - "80"
+
+override:
+  <<: *base
+  environment:
+    - DEBUG=true

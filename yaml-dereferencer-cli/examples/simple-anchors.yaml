@@ -1,0 +1,16 @@
+defaults: &defaults
+  timeout: 30s
+  retries: 3
+
+service1:
+  <<: *defaults
+  port: 8080
+
+service2: *defaults
+
+shared_list: &list
+  - item1
+  - item2
+
+nested:
+  inner: *list
