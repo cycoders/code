@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "proto-schema-diff"
+dynamic = ["version"]
+description = "Detects breaking and non-breaking changes between Protocol Buffer schemas with terminal trees, HTML reports, and CI-friendly JSON output"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Code Generators",
+]
+requires-python = ">=3.11"
+dependencies = [
+  "typer>=0.12.0",
+  "rich>=13.0.0",
+  "protobuf>=5.28.0",
+  "jinja2>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "rich-click>=1.0",
+  "pre-commit",
+]
+
+[project.scripts]
+proto-schema-diff = "proto_schema_diff.cli:main"
+
+[tool.hatch.version]
+path = "src/proto_schema_diff/__init__.py"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --cov=src/proto_schema_diff --cov-report=term-missing --cov-report=html"
+
+[tool.rich-click]
+use_markup = true

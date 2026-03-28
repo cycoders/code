@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proto Schema Diff</title>
+    <style>
+        body { font-family: monospace; line-height: 1.6; }
+        ul { list-style: none; padding-left: 20px; }
+        .added { color: green; }
+        .removed { color: red; text-decoration: line-through; }
+        .modified { color: orange; }
+        .unchanged { color: gray; }
+        .node { margin: 2px 0; }
+        .path { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Proto Schema Diff</h1>
+    {% for diff in diffs %}
+        <div class="node {{ diff.change_type }}">
+            <span class="path">{{ diff.path }} ({{ diff.kind }}: {{ diff.change_type | upper }})</span>
+            {% if diff.old_value %}<span> old: {{ diff.old_value }}</span>{% endif %}
+            {% if diff.new_value %}<span> new: {{ diff.new_value }}</span>{% endif %}
+            {% if diff.children %}
+                <ul>
+                    {% for child in diff.children %}
+                        {{ child | tojson | safe }}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endfor %}
+</body>
+</html>
