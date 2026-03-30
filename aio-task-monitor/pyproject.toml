@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "aio-task-monitor"
+version = "0.1.0"
+description = "Real-time TUI dashboard for inspecting Python asyncio tasks, futures, and event loop state"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+maintainers = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/aio-task-monitor"
+keywords = ["asyncio", "debug", "tui", "monitor", "textual"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: System :: Monitoring",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+textual = ">=0.51.1"
+typer = {extras = ["all"], version = ">=0.9.0"}
+
+[tool.poetry.dev-dependencies]
+pytest = ">=8.3.3"
+black = ">=24.8.0"
+ruff = ">=0.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+aio-task-monitor = "aio_task_monitor.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "Q", "T20", "ARG", "PTH"]
+ignore = ["T201"]
+
+[tool.black]
+target-version = ['py311']
