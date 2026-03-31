@@ -1,0 +1,8 @@
+{
+  "sim_duration": 3600,
+  "arrival_rate": 10.0,
+  "service_dist": "empirical",
+  "service_file": "demo-jobs.csv",
+  "num_workers": 5,
+  "seed": 42
+}
