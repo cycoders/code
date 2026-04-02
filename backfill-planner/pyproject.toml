@@ -1,0 +1,11 @@
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers -q"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
