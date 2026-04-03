@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datetime-auditor-cli"
+dynamic = ["version"]
+description = "Audits Python codebases for datetime and timezone best practices."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.7.0",
+]
+
+[project.scripts]
+datetime-auditor-cli = "datetime_auditor_cli.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/datetime-auditor-cli"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
