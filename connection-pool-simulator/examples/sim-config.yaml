@@ -1,0 +1,7 @@
+max_size: 20
+acquire_timeout: 0.3
+num_clients: 100
+requests_per_client: 200
+query_duration_mean: 0.05
+query_duration_std: 0.01
+ramp_up_duration: 10.0
