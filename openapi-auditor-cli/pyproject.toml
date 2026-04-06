@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openapi-auditor-cli"
+dynamic = ["version"]
+description = "Comprehensive CLI auditor for OpenAPI specifications"
+readme = "README.md"
+authors = [{name = "Arya Sianati"}]
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+    "PyYAML>=6.0.1",
+    "jsonschema>=4.21.1",
+    "jinja2>=3.1.2",
+]
+
+[project.scripts]
+openapi-auditor = "openapi_auditor_cli.main:app"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.2"
+testpaths = ["tests"]
+addopts = "-ra --cov=src/openapi_auditor_cli --cov-report=term-missing"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]

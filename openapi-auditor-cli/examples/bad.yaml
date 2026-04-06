@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  # Missing title
+paths:
+  /users:
+    post:
+      # Missing summary, tags
+      parameters:
+        - name: p1
+        - name: p2
+        # ... more for test
+        - name: p6
