@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "manifest-diff-viz"
+version = "0.1.0"
+description = "Visualizes Kubernetes manifest differences with rich colorized diffs"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/cycoders/code/tree/main/manifest-diff-viz"
+keywords = ["kubernetes", "helm", "diff", "manifest", "yaml"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Networking",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = [], version = "^0.12.0"}
+rich = {extras = ["stdout"], version = "^13.7.0"}
+PyYAML = "^6.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-typer = "^0.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+"manifest-diff-viz" = "manifest_diff_viz.__main__:main"
