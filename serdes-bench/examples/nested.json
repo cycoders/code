@@ -1,0 +1,13 @@
+{
+  "user": {
+    "profile": {
+      "name": "Arya",
+      "preferences": {"theme": "dark", "lang": "en"}
+    },
+    "activity": [
+      {"type": "login", "ts": 1728000000},
+      {"type": "view", "item": "bench", "ts": 1728000010}
+    ]
+  },
+  "stats": {"count": 1000, "avg": 25.5}
+}
