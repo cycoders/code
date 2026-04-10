@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "local-hosts-manager"
+version = "0.1.0"
+description = "Safely manage /etc/hosts for local development with backups, validation, and rich CLI"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/local-hosts-manager"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.1"
+
+[tool.poetry.scripts]
+local-hosts-manager = "local_hosts_manager.cli:app"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::PendingDeprecationWarning",
+]
+markers = [
+    "slow: marks tests as slow",
+    "serial: marks tests that must run serially",
+]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.0"
+pytest = "^7.4.0"
+"pytest-mock" = "^3.11.1"
