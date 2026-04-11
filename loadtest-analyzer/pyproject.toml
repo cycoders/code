@@ -1,0 +1,25 @@
+[tool.pytest.ini_options]
+addopts = "-ra --cov=src/loadtest_analyzer --cov-report=term-missing"
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loadtest-analyzer"
+dynamic = ["version"]
+version = "0.1.0"
+description = "CLI for analyzing load test results with metrics and visualizations"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+dependencies = [
+    "typer>=0.12.5",
+    "rich>=13.7.1",
+]
+
+[project.scripts]
+loadtest-analyzer = "loadtest_analyzer.cli:app"

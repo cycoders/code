@@ -1,0 +1,11 @@
+timestamp,response_time,status_code,endpoint,method,error
+1722470400,120.5,200,/api/home,GET,
+1722470401,180.2,200,/api/users,GET,
+1722470402,250.0,500,/api/orders,POST,timeout
+1722470403,90.1,200,/api/home,GET,
+1722470404,320.7,200,/api/search,GET,
+1722470405,155.3,200,/api/users,GET,
+1722470406,210.0,404,/api/orders,POST,not found
+1722470407,85.4,200,/api/home,GET,
+1722470408,450.9,200,/api/pay,POST,
+1722470409,140.2,200,/api/search,GET,

@@ -1,0 +1,6 @@
+[
+  {"timestamp": 1722470400, "response_time": 120.5, "status_code": 200, "endpoint": "/api/home", "method": "GET", "error": null},
+  {"timestamp": 1722470401, "response_time": 180.2, "status_code": 200, "endpoint": "/api/users", "method": "GET", "error": null},
+  {"timestamp": 1722470402, "response_time": 250.0, "status_code": 500, "endpoint": "/api/orders", "method": "POST", "error": "timeout"},
+  {"timestamp": 1722470403, "response_time": 90.1, "status_code": 200, "endpoint": "/api/home", "method": "GET", "error": null}
+]
