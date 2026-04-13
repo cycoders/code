@@ -1,0 +1,19 @@
+namespaces:
+  default:
+    labels:
+      team: backend
+    pods:
+      web:
+        labels:
+          app: web
+      db:
+        labels:
+          app: db
+  frontend:
+    labels:
+      team: frontend
+    pods:
+      app:
+        labels:
+          app: frontend
+          tier: ui

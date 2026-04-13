@@ -1,0 +1,32 @@
+- name: web-ingress
+  namespace: default
+  pod_selector:
+    match_labels:
+      app: web
+  policy_types: [Ingress]
+  ingress:
+    - peers:
+        - pod_selector:
+            match_labels:
+              app: frontend
+      ports: [80]
+
+- name: db-egress
+  namespace: default
+  pod_selector:
+    match_labels:
+      app: db
+  policy_types: [Egress]
+  egress:
+    - peers:
+        - namespace_selector:
+            match_labels:
+              team: frontend
+      ports: [5432]
+
+- name: deny-all-other
+  namespace: default
+  pod_selector: {}
+  policy_types: [Ingress, Egress]
+  ingress: []
+  egress: []
