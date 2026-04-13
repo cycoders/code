@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "critical-css-extractor"
+dynamic = ["version"]
+description = "Extracts critical above-the-fold CSS from HTML pages to improve web performance"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+maintainers = [{name = "Arya Sianati"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "typer",
+    "rich",
+    "beautifulsoup4",
+    "lxml",
+    "cssutils",
+    "requests",
+]
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-clic",
+    "ruff",
+]
+[project.scripts]
+critical-css-extractor = "critical_css_extractor.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/critical-css-extractor"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:cssutils",
+]
+markers = [
+    "slow: marks tests as slow",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "C4", "T20", "ARG", "PYC", "PT", "RSE", "SLF", "TID", "TCH", "DJ", "INP", "ISC", "G", "PGH", "PIE", "PL", "RET", "RUF", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403", "F405"]
