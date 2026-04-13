@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "disk-usage-tui"
+dynamic = ["version"]
+description = "Interactive TUI disk usage analyzer"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Arya Sianati"}]
+dependencies = [
+  "textual>=0.80.0",
+  "pathspec>=0.12.0",
+  "typer[all]>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4.0",
+  "pytest-asyncio>=0.23.0",
+  "rich",
+]
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/disk-usage-tui"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:typer",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint.pylint]
+max-args = 8
+
+[tool.black]
+line-length = 100
