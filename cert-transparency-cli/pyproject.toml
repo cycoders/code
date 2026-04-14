@@ -1,0 +1,27 @@
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:cryptography"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cert-transparency-cli"
+dynamic = ["version"]
+description = "CLI for Certificate Transparency logs"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31.0",
+    "rich>=13.7.0",
+    "typer>=0.12.0",
+    "cryptography>=42.0.0"
+]
+[project.scripts]
+cert-transparency-cli = "cert_transparency_cli.__main__:main"
