@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "binary-explorer-tui"
+dynamic = ["version"]
+version = "0.1.0"
+description = "Interactive TUI for static binary analysis (ELF/PE/Mach-O)"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name="Arya Sianati", email="arya@cycoders.com"}]
+maintainers = [{name="Arya Sianati", email="arya@cycoders.com"}]
+requires-python = ">=3.11"
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "typer",
+  "rich",
+  "textual",
+  "lief",
+]
+
+[project.scripts]
+binary-explorer-tui = "binary_explorer_tui.cli:app"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/binary-explorer-tui"
+Repository = "https://github.com/cycoders/code.git"

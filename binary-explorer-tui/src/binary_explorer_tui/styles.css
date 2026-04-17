@@ -1,0 +1,35 @@
+.sidebar {
+  dock: left;
+  width: 25%;
+  max-width: 30;
+  background: $panel;
+  border-right: solid $primary;
+}
+
+.content {
+  height: 1fr;
+}
+
+DataTable {
+  height: 1fr;
+}
+
+DataTable--header {
+  background: $accent 50%;
+}
+
+Tree--focused {
+  text-style: bold;
+}
+
+Screen {
+  background: black;
+}
+
+Header {
+  background: $background 90%;
+}
+
+Footer {
+  background: $background 90%;
+}
