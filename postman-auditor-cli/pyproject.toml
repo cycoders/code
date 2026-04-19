@@ -1,0 +1,14 @@
+[tool.pytest.ini_options]
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "B", "Q", "I", "N", "UP", "W", "ANN", "BLE", "T20"]
+ignore = ["ANN101", "ANN102", "T201", "T203", "T204"]
+
+[tool.mypy]
+python_version = "3.11"
+disallow_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = false

@@ -1,0 +1,42 @@
+{
+  "info": {
+    "name": "Demo Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "unused_var", "value": "unused"}
+  ],
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {"key": "Authorization", "value": "Bearer abc123def456"},
+              {"key": "X-API-Key", "value": "sk-test1234567890abcdef"}
+            ],
+            "url": {
+              "raw": "https://api.example.com/users/1?secret=AKIA1234567890ABCDEF"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"password\": \"hardcoded\"}"
+            }
+          }
+        },
+        {
+          "name": "Get User",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http:///invalid"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
