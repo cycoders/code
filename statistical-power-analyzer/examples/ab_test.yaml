@@ -1,0 +1,7 @@
+test_type: prop-ztest
+prop1: 0.05
+prop2: 0.07
+power: 0.8
+alpha: 0.05
+ratio: 1.0
+solve_for: nobs

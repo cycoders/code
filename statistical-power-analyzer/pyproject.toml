@@ -1,0 +1,14 @@
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --tb=short"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::FutureWarning:statsmodels",
+]
+
+[tool.coverage.run]
+source = ["src/statistical_power_analyzer"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,46 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdistvars/
+var/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dist
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Env
+.env
+.venv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Plots
+*.png
+*.pdf
