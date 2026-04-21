@@ -1,0 +1,25 @@
+[package]
+name = "idgen-benchmarker"
+version = "0.1.0"
+edition = "2021"
+
+description = "Benchmarks ID generators (UUID, ULID, KSUID, NanoID) for distributed systems"
+license = "MIT"
+repository = "https://github.com/cycoders/code/tree/main/idgen-benchmarker"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+
+categories = ["command-line-utilities", "development-tools::testing"]
+keywords = ["benchmark", "cli", "distributed", "id", "generator", "uuid", "ulid", "ksuid", "nanoid"]
+
+[[bin]]
+name = "idgen-benchmarker"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+comfy-table = "7.2"
+rayon = "1.10"
+uuid = { version = "1.10", features = ["v4", "fast-rng"] }
+ulid = "1.1"
+ksuid = "0.6"
+nanoid = "0.6"
