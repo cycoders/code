@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arch-boundary-auditor"
+dynamic = ["version"]
+description = "Enforces architectural boundaries in Python codebases by auditing imports against user-defined YAML layer rules"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Arya Sianati", email = "arya@cycoders.com"},
+]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+  "typer >= 0.9.0",
+  "rich >= 13.7.0",
+  "libcst >= 1.3.0",
+  "pyyaml >= 6.0",
+  "pydantic >= 2.5.0",
+]
+[project.optional-dependencies]
+dev = [
+  "pytest >= 7.4",
+  "pytest-cov >= 4.0",
+  "ruff >= 0.1.0",
+  "black >= 23.0",
+]
+[project.scripts]
+arch-boundary-auditor = "arch_boundary_auditor.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/arch-boundary-auditor"
+Repository = "https://github.com/cycoders/code"
+
+[tool.hatch.version]
+path = "src/arch_boundary_auditor/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/arch_boundary_auditor",
+  "README.md",
+  "LICENSE",
+  "pyproject.toml",
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "T20", "Q"]
+ignore = ["T201"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
