@@ -1,0 +1,12 @@
+{"sourceType":"HTTP2_STREAM","source":{"id":1},"type":"HTTP2_STREAM_RECV_PRIORITY","time":1000000,"params":{"dependency":0,"weight":240,"exclusive":false},"logName":"content"}
+{"sourceType":"URL_REQUEST","source":{"id":1},"type":"URL_REQUEST_STARTED","time":1000500,"params":{"url":"https://example.com/style.css"},"logName":"content"}
+{"sourceType":"URL_REQUEST","source":{"id":1},"type":"URL_REQUEST_COMPLETED","time":1012500,"params":{}}
+{"sourceType":"HTTP2_STREAM","source":{"id":3},"type":"HTTP2_STREAM_RECV_PRIORITY","time":1002000,"params":{"dependency":1,"weight":200,"exclusive":false}}
+{"sourceType":"URL_REQUEST","source":{"id":3},"type":"URL_REQUEST_STARTED","time":1002500,"params":{"url":"https://example.com/app.js"}}
+{"sourceType":"URL_REQUEST","source":{"id":3},"type":"URL_REQUEST_COMPLETED","time":1020500}
+{"sourceType":"HTTP2_STREAM","source":{"id":5},"type":"HTTP2_STREAM_RECV_PRIORITY","time":1003000,"params":{"dependency":1,"weight":1,"exclusive":false}}
+{"sourceType":"URL_REQUEST","source":{"id":5},"type":"URL_REQUEST_STARTED","time":1010000,"params":{"url":"https://example.com/hero.jpg"}}
+{"sourceType":"URL_REQUEST","source":{"id":5},"type":"URL_REQUEST_COMPLETED","time":1014500}
+{"sourceType":"HTTP2_STREAM","source":{"id":7},"type":"HTTP2_STREAM_RECV_PRIORITY","time":1004000,"params":{"dependency":3,"weight":100}}
+{"sourceType":"URL_REQUEST","source":{"id":7},"type":"URL_REQUEST_STARTED","time":1020000,"params":{"url":"https://example.com/api/data.json"}}
+{"sourceType":"URL_REQUEST","source":{"id":7},"type":"URL_REQUEST_COMPLETED","time":1030000}

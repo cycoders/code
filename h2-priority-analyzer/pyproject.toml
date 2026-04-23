@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "h2-priority-analyzer"
+version = "0.1.0"
+description = "Visualizes HTTP/2 priority trees waterfalls and blocking chains from Chrome net-export logs"
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.5.0",
+    "pydantic>=2.5.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.scripts]
+h2-priority-analyzer = "h2_priority_analyzer.cli:app"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/h2_priority_analyzer"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --cov=src/h2_priority_analyzer --cov-report=term-missing"
