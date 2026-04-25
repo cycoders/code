@@ -1,0 +1,15 @@
+simulation:
+  rps: 25.0
+  duration_secs: 90
+  error_rate: 0.12
+  ramp_duration_secs: 20
+breakers:
+  - name: quick-open
+    type: consecutive
+    consec_threshold: 4
+    timeout_secs: 30
+  - name: slow-burn
+    type: threshold
+    failure_threshold: 25
+    window_secs: 15
+    timeout_secs: 60
