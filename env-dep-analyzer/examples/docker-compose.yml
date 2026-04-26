@@ -1,0 +1,11 @@
+services:
+  web:
+    environment:
+      APP_URL: https://${DOMAIN_NAME}
+      DB_URL: postgres://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    env_file: .env
+  worker:
+    environment:
+      - QUEUE=${CELERY_QUEUE:-default}
+    env_file:
+      - .env
