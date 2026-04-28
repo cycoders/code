@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "git-contributor-analyzer"
+version = "0.1.0"
+description = "CLI tool that generates detailed contributor statistics, productivity metrics, and beautiful terminal visualizations from any git repository"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+dependencies = [
+  "typer",
+  "rich",
+  "GitPython",
+  "pytest",
+]
+
+[project.scripts]
+git-contributor-analyzer = "git_contributor_analyzer.cli:app"
+
+[tool.pytest.ini_options]
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+minversion = "7.0"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/git-contributor-analyzer"
+Repository = "https://github.com/cycoders/code.git"
