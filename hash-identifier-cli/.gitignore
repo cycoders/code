@@ -1,0 +1,44 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.env
+.env.local
+.venv
+env/
+environ/
+!.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dist
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Coverage
+.coverage*
+coverage.xml
+*.cover
+.hypothesis

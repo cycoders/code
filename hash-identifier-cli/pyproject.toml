@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hash-identifier-cli"
+dynamic = ["version"]
+description = "Lightning-fast CLI to identify hash algorithms from hex digests"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@example.com"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "typer==0.12.5",
+  "rich==13.9.3",
+]
+
+[project.scripts]
+hashid = "hash_identifier_cli.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/hash-identifier-cli"
+Repository = "https://github.com/cycoders/code.git"
+
+[tool.hatch.version]
+path = "src/hash_identifier_cli/__init__.py"
