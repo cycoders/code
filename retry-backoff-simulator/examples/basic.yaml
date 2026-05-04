@@ -1,0 +1,10 @@
+backoff:
+  strategy: full_jitter
+  base_delay: 0.1
+  factor: 2.0
+  max_delay: 60.0
+  max_attempts: 20
+failure_rate: 0.5
+service_time: 0.01
+num_trials: 5000
+seed: 42

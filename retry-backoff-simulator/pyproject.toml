@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "retry-backoff-simulator"
+version = "0.1.0"
+description = "CLI tool that simulates retry backoff strategies under configurable failure scenarios to visualize metrics and optimize resilience in distributed systems"
+authors = ["Arya Sianati <arya@cycoders.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/retry-backoff-simulator"
+keywords = ["retry", "backoff", "simulation", "resilience", "distributed"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Distributed Computing",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {extras = ["all"], version = "^0.12.0"}
+rich = "^13.7.0"
+matplotlib = "^3.9.0"
+pydantic = "^2.9.0"
+pyyaml = "^6.0.2"
+
+[tool.poetry.scripts]
+retry-backoff-simulator = "retry_backoff_simulator.cli:app"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-cov = "^5.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = "-ra --cov=src/retry_backoff_simulator --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning",
+]
+
+[tool.pytest.ini_options.baseline]
+threshold = 95
