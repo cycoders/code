@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "unicode-normalizer-cli"
+version = "0.1.0"
+description = "CLI to scan and normalize Unicode in files/filenames"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = "^0.12.5"
+rich = "^13.7.1"
+GitPython = "^3.1.43"
+pathspec = "^0.12.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+unicode-normalizer-cli = "unicode_normalizer_cli.cli:app"
