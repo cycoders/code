@@ -1,0 +1,6 @@
+typer==0.12.5
+rich==13.9.3
+pikepdf==9.2.0
+Pillow==11.1.0
+tqdm==4.66.5
+pytest==8.3.3
