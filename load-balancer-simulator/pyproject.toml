@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "load-balancer-simulator"
+description = "Simulates load balancer algorithms under realistic traffic patterns, backend capacities, and failure rates to optimize scaling and routing decisions"
+authors = ["Arya Sianati <arya@example.com>"]
+version = "0.1.0"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cycoders/code/tree/main/load-balancer-simulator"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+typer = {version = "^0.12.5"}
+rich = {version = "^13.7.1"}
+pydantic = {version = "^2.8.2"}
+pyyaml = {version = "^6.0.2"}
+
+[tool.poetry.scripts]
+lb-sim = "load_balancer_simulator.cli:app"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

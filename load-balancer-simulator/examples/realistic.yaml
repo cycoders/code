@@ -1,0 +1,17 @@
+duration: 60.0
+arrival_rate: 100.0
+seed: 42
+strategy: "least-connections"
+backends:
+  - name: "web-01"
+    capacity: 25
+    service_time_mean: 0.050
+    service_time_std: 0.010
+    failure_rate: 0.005
+    weight: 1
+  - name: "web-02"
+    capacity: 35
+    service_time_mean: 0.040
+    service_time_std: 0.012
+    failure_rate: 0.010
+    weight: 2
