@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "slo-burn-rate-cli"
+dynamic = ["version"]
+description = "SLO Burn Rate and Error Budget Calculator"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati", email = "arya@cycoders.com"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "typer",
+    "rich",
+    "pandas",
+    "python-dateutil",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pre-commit",
+    "rich-click",
+]
+
+[project.urls]
+Homepage = "https://github.com/cycoders/code/tree/main/slo-burn-rate-cli"
+Repository = "https://github.com/cycoders/code.git"
+
+[project.scripts]
+slo-burn-rate-cli = "slo_burn_rate_cli.cli:app"
+
+[tool.hatch.version]
+path = "src/slo_burn_rate_cli/__init__.py"
+
+[tool.hatch.envs.default]
+deps = [
+    "hatchling",
+    "pytest",
+    "rich-click",
+]
+
+[tool.hatch.envs.docs]
+skip-install = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::PendingDeprecationWarning:",
+]
