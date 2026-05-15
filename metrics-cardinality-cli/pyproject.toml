@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "metrics-cardinality-cli"
+version = "0.1.0"
+description = "Detect high-cardinality Prometheus metrics"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "rich>=13.0", "pydantic>=2.0"]
+
+[project.scripts]
+metrics-cardinality-cli = "metrics_cardinality_cli.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
