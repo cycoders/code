@@ -1,0 +1,2 @@
+2025-01-15T10:23:45Z level=INFO msg="user login" user_id=42
+2025-01-15T10:23:46Z level=WARN msg="slow query" duration=312
