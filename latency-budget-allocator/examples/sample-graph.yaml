@@ -1,0 +1,6 @@
+api:
+  depends_on: [auth, db]
+auth:
+  depends_on: [db]
+db:
+  depends_on: []
