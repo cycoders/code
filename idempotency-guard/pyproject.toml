@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "idempotency-guard"
+version = "0.1.0"
+description = "Production-grade idempotency key management"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["redis>=5.0", "click>=8.1", "rich>=13.0", "pydantic>=2.0"]
+
+[project.scripts]
+idempotency-guard = "idempotency_guard.cli:main"
