@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyc-disassembler-cli"
+version = "0.1.0"
+description = "Professional Python bytecode analyzer"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.7", "click>=8.1", "graphviz>=0.20"]
+
+[project.scripts]
+pyc-disassembler = "pyc_disassembler_cli.cli:main"
