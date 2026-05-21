@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "log-sampling-optimizer"
+version = "0.1.0"
+description = "Optimal log sampling recommendations"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "pydantic>=2", "numpy>=1.26", "tomli>=2.0"]
+
+[project.scripts]
+log-sampling-optimizer = "log_sampling_optimizer.cli:app"
