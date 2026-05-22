@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "consistent-hash-simulator"
+version = "0.1.0"
+description = "Consistent hashing ring simulator with visualization and failure injection"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "rich>=13.0", "numpy>=1.24"]
+
+[project.scripts]
+consistent-hash-simulator = "consistent_hash_simulator.cli:cli"
