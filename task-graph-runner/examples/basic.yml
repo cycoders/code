@@ -1,0 +1,6 @@
+tasks:
+  - name: install
+    command: pip install -r requirements.txt
+  - name: test
+    command: pytest
+    deps: [install]
