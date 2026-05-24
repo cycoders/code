@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mime-sniffer"
+version = "0.1.0"
+description = "Fast, dependency-light MIME type detection"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+mime-sniffer = "mime_sniffer.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mime_sniffer"]
