@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "async-block-detector"
+version = "0.1.0"
+description = "Detect blocking calls in async code"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.7", "typer>=0.9"]
+
+[project.scripts]
+abd = "async_block_detector.cli:app"
+
+[tool.ruff]
+line-length = 88
