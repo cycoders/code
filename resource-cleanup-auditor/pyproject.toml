@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resource-cleanup-auditor"
+version = "0.1.0"
+description = "Detect potential resource leaks via static analysis"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.7", "typer>=0.9"]
+
+[project.scripts]
+resource-cleanup-auditor = "resource_cleanup_auditor.cli:app"
