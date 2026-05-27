@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ulid-toolkit"
+version = "0.1.0"
+description = "Production-grade ULID generation, inspection and simulation toolkit"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "pydantic>=2"]
+
+[project.scripts]
+ulid-toolkit = "ulid_toolkit.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
