@@ -1,0 +1,1 @@
+def payment_handler(): pass  # should be flagged

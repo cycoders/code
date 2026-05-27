@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "observability-gap-detector"
+version = "0.1.0"
+description = "Detect missing observability instrumentation"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["libcst>=1.2", "rich>=13", "click>=8.1", "structlog>=24"]
+
+[project.scripts]
+ogd = "observability_gap_detector.cli:main"
