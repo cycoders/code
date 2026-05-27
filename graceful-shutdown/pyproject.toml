@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graceful-shutdown"
+version = "0.1.0"
+description = "Graceful shutdown coordinator for Python services"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [{name = "Arya Sianati"}]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7.4", "pytest-asyncio>=0.21"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
