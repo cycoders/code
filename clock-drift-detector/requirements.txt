@@ -1,0 +1,6 @@
+click
+rich
+numpy
+scipy
+pandas
+jinja2
