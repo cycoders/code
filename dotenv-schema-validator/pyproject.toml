@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dotenv-schema-validator"
+version = "0.1.0"
+description = "Schema validation for .env files"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["jsonschema>=4.21", "python-dotenv>=1.0", "rich>=13.7", "click>=8.1"]
+
+[project.scripts]
+dotenv-schema-validator = "dotenv_schema_validator.cli:cli"

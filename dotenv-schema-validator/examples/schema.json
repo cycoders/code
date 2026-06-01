@@ -1,0 +1,1 @@
+{"type":"object","properties":{"API_KEY":{"type":"string","minLength":20},"LOG_LEVEL":{"enum":["DEBUG","INFO","WARN","ERROR"]}},"required":["API_KEY"]}
