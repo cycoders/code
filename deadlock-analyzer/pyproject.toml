@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deadlock-analyzer"
+version = "0.1.0"
+description = "Static deadlock detector for Python threading code"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13"]
+
+[project.scripts]
+deadlock-analyzer = "deadlock_analyzer.cli:app"
