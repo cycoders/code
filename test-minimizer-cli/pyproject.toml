@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test-minimizer-cli"
+version = "0.1.0"
+description = "Delta-debugging test case minimizer"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13.0", "pytest>=7.0"]
+
+[project.scripts]
+test-minimizer = "test_minimizer_cli.cli:app"
