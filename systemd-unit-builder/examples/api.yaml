@@ -1,0 +1,8 @@
+name: my-api
+exec_start: /opt/myapi/bin/server
+user: www-data
+working_directory: /opt/myapi
+environment:
+  PORT: "8080"
+after: [network-online.target]
+restart: always
