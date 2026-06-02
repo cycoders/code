@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thread-contention-analyzer"
+version = "0.1.0"
+description = "Lock contention profiler for Python"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.7", "click>=8.1"]
+
+[project.scripts]
+thread-contention-analyzer = "thread_contention_analyzer.cli:main"
