@@ -1,0 +1,4 @@
+rich>=13.7
+libcst>=1.2
+typer>=0.9
+tomli>=2.0
