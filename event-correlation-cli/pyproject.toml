@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "event-correlation-cli"
+version = "0.1.0"
+description = "Correlate events across log sources to find causal chains"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = [
+  "click>=8.1",
+  "rich>=13.7",
+  "pyyaml>=6.0",
+  "python-dateutil>=2.9",
+]
+
+[project.scripts]
+event-correlation-cli = "event_correlation_cli.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
