@@ -1,0 +1,15 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bloom-filter-cli"
+version = "0.1.0"
+description = "Production-grade Bloom filter parameter calculator and simulator"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "numpy>=1.26", "pyyaml>=6.0"]
+
+[project.scripts]
+bloom-filter-cli = "bloom_filter_cli.cli:app"
