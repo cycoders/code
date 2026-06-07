@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jinja2-security-linter"
+version = "0.1.0"
+description = "Detects security issues in Jinja2 templates"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["jinja2>=3.1", "rich>=13.0", "click>=8.1", "typing-extensions>=4.0"]
+
+[project.scripts]
+jinja2-security-linter = "jinja2_security_linter.cli:main"
+
+[tool.ruff]
+line-length = 88
