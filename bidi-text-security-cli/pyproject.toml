@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bidi-text-security-cli"
+version = "0.1.0"
+description = "Detect Unicode bidirectional text attacks"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.0", "click>=8.1"]
+
+[project.scripts]
+bidi-text-security-cli = "bidi_text_security_cli.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bidi_text_security_cli"]
