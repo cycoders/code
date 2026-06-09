@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "path-traversal-auditor"
+version = "0.1.0"
+description = "Precise static analysis for path traversal vulnerabilities"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "astroid>=3.0"]
+
+[project.scripts]
+path-traversal-auditor = "path_traversal_auditor.cli:app"
