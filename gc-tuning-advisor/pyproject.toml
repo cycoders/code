@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gc-tuning-advisor"
+version = "0.1.0"
+description = "Python GC log analyzer and tuning advisor"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "rich>=13.0", "pydantic>=2.0"]
+
+[project.scripts]
+gc-tuning-advisor = "gc_tuning_advisor.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
