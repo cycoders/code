@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cron-overlap-detector"
+version = "0.1.0"
+description = "Detect overlapping cron and systemd timer executions"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.7", "click>=8.1", "python-dateutil>=2.9", "croniter>=2.0"]
+
+[project.scripts]
+cron-overlap-detector = "cron_overlap_detector.cli:main"
