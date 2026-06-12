@@ -1,0 +1,4 @@
+typer>=0.9
+rich>=13
+redis>=5
+pytest>=7

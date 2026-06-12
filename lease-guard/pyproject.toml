@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lease-guard"
+version = "0.1.0"
+description = "Distributed lease management with fencing and renewal"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "redis>=5"]
+
+[project.scripts]
+lease-guard = "lease_guard.cli:app"
