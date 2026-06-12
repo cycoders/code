@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "heap-snapshot-diff"
+version = "0.1.0"
+description = "Diff Python heap snapshots to find memory leaks"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "pydantic>=2"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "ruff", "mypy"]
+
+[project.scripts]
+heap-snapshot-diff = "heap_snapshot_diff.cli:app"
+
+[tool.ruff]
+line-length = 88
