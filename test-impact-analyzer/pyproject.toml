@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test-impact-analyzer"
+version = "0.1.0"
+description = "Predict impacted tests from git diffs and coverage data"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["gitpython>=3.1", "rich>=13.0", "typer>=0.9"]
+
+[project.scripts]
+test-impact-analyzer = "test_impact_analyzer.cli:app"
