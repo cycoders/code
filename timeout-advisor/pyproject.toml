@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "timeout-advisor"
+version = "0.1.0"
+description = "Latency-histogram-driven timeout recommendations"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "numpy>=1.24"]
+
+[project.scripts]
+timeout-advisor = "timeout_advisor.cli:app"
