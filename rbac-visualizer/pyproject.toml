@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rbac-visualizer"
+version = "0.1.0"
+description = "RBAC policy graph visualizer and auditor"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "rich>=13.7", "kubernetes>=28.1", "pyyaml>=6.0"]
+
+[project.scripts]
+rbac-visualizer = "rbac_visualizer.cli:main"
