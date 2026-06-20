@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "import-side-effect-detector"
+version = "0.1.0"
+description = "Detect hidden side effects during Python imports"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.7", "typer>=0.9"]
+
+[project.scripts]
+import-side-effect-detector = "import_side_effect_detector.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/import_side_effect_detector"]
