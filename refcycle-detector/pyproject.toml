@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "refcycle-detector"
+version = "0.1.0"
+description = "Detect and visualize Python reference cycles"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich", "click", "graphviz"]
+
+[project.scripts]
+refcycle-detector = "refcycle_detector.cli:main"
