@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "slsa-attestation-verifier"
+version = "0.1.0"
+description = "Verify SLSA attestations and enforce supply-chain policy"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = [
+  "click>=8.1",
+  "rich>=13.0",
+  "pydantic>=2.0",
+  "cryptography>=42.0",
+  "in-toto>=2.0",
+  "sigstore>=3.0",
+]
+
+[project.scripts]
+slsa-attestation-verifier = "slsa_attestation_verifier.cli:cli"
