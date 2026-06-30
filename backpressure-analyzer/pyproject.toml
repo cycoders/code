@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backpressure-analyzer"
+version = "0.1.0"
+description = "Detect and remediate backpressure in async Python services"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13", "typer>=0.9", "astroid>=3.0"]
+
+[project.scripts]
+backpressure-analyzer = "backpressure_analyzer.cli:app"
