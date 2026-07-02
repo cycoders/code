@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "migration-safety-analyzer"
+version = "0.1.0"
+description = "Static analyzer for safe database migrations"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["sqlglot>=23.0", "rich>=13.0", "click>=8.1", "pydantic>=2.0"]
+
+[project.scripts]
+migration-safety-analyzer = "migration_safety_analyzer.cli:main"
