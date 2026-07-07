@@ -1,0 +1,15 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "float-precision-linter"
+version = "0.1.0"
+description = "Detect floating-point precision issues"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = ["rich>=13", "typer>=0.9", "astroid>=3"]
+
+[project.scripts]
+float-precision-linter = "float_precision_linter.cli:app"
