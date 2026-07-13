@@ -1,0 +1,4 @@
+libcst>=1.1.0
+rich>=13.7
+typer>=0.9
+pytest>=7.4

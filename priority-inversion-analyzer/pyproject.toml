@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "priority-inversion-analyzer"
+version = "0.1.0"
+description = "Detect priority inversion risks in concurrent Python code"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["libcst>=1.1.0", "rich>=13.7", "typer>=0.9"]
+
+[project.scripts]
+priority-inversion-analyzer = "priority_inversion_analyzer.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
