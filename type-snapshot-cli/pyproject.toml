@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "type-snapshot-cli"
+version = "0.1.0"
+description = "Runtime type snapshotting for precise Python type hints"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13", "typer>=0.9", "pytest>=7"]
+
+[project.scripts]
+type-snapshot-cli = "type_snapshot_cli.cli:app"
+
+[tool.pytest.ini_options]
+addopts = "-q --tb=short"
