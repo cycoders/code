@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trace-cost-analyzer"
+version = "0.1.0"
+description = "Distributed tracing cost and volume estimator"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "orjson>=3.9", "rich>=13.0", "pyyaml>=6.0"]
+
+[project.scripts]
+trace-cost-analyzer = "trace_cost_analyzer.cli:cli"
