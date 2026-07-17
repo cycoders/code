@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "flamegraph-diff-cli"
+version = "0.1.0"
+description = "Statistical flamegraph diffing for performance regression detection"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "rich>=13.0", "numpy>=1.24", "scipy>=1.10"]
+
+[project.scripts]
+flamegraph-diff-cli = "flamegraph_diff_cli.cli:main"
