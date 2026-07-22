@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "alert-rule-tester"
+version = "0.1.0"
+description = "Validate and simulate Prometheus alerting rules"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = [
+  "click>=8.1",
+  "rich>=13.0",
+  "pyyaml>=6.0",
+  "numpy>=1.24",
+  "prometheus-client>=0.19",
+]
+
+[project.scripts]
+alert-rule-tester = "alert_rule_tester.cli:cli"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
