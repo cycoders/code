@@ -1,0 +1,15 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tracecontext-validator"
+version = "0.1.0"
+description = "W3C Trace Context validator for distributed tracing"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "rich>=13.0"]
+
+[project.scripts]
+tracecontext-validator = "tracecontext_validator.cli:cli"
