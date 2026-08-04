@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gil-contention-analyzer"
+version = "0.1.0"
+description = "Measure and visualize Python GIL contention"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13", "click>=8", "numpy>=1.26"]
+
+[project.scripts]
+gil-contention-analyzer = "gil_contention_analyzer.cli:main"
