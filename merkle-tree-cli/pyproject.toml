@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "merkle-tree-cli"
+version = "0.1.0"
+description = "Production-grade Merkle tree CLI"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13", "blake3>=0.3"]
+
+[project.scripts]
+merkle-tree-cli = "merkle_tree_cli.cli:app"
