@@ -1,0 +1,5 @@
+query Expensive {
+  users(first: 100) {
+    posts { comments { author { friends } } }
+  }
+}

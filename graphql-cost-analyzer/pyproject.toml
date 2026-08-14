@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "graphql-cost-analyzer"
+version = "0.1.0"
+description = "Static cost analysis for GraphQL queries"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["graphql-core>=3.2", "typer>=0.9", "rich>=13.0"]
+
+[project.scripts]
+graphql-cost-analyzer = "graphql_cost_analyzer.cli:app"
