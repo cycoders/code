@@ -1,0 +1,5 @@
+workload:
+  io_ratio: 0.65
+  cpu_ratio: 0.35
+  mean_io_ms: 45
+  mean_cpu_ms: 12
