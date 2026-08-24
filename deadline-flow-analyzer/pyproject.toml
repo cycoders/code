@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "deadline-flow-analyzer"
+version = "0.1.0"
+description = "Static analysis for deadline propagation in async Python"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = ["libcst>=1.2", "rich>=13.7", "click>=8.1", "tomli>=2.0"]
+
+[project.scripts]
+deadline-flow-analyzer = "deadline_flow_analyzer.cli:main"
+
+[tool.ruff]
+line-length = 88
