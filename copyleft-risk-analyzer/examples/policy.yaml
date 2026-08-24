@@ -1,0 +1,5 @@
+allowed:
+  - MIT
+  - Apache-2.0
+deny:
+  - AGPL-3.0-only
