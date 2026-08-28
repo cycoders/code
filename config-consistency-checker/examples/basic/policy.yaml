@@ -1,0 +1,4 @@
+type: object
+properties:
+  database_url:
+    type: string
