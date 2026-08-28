@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "crypto-agility-scanner"
+version = "0.1.0"
+description = "Detect hardcoded crypto algorithms and suggest migrations"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = [
+  "tree-sitter>=0.20.0",
+  "tree-sitter-python>=0.20.0",
+  "tree-sitter-javascript>=0.20.0",
+  "rich>=13.0.0",
+  "click>=8.1.0",
+  "pydantic>=2.0.0",
+]
+
+[project.scripts]
+crypto-agility-scanner = "crypto_agility_scanner.cli:main"
+
+[tool.ruff]
+line-length = 88
