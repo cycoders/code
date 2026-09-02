@@ -1,0 +1,5 @@
+libcst>=1.1
+rich>=13.7
+typer>=0.9
+sarif-om>=1.3
+pytest>=7.4
