@@ -1,0 +1,5 @@
+hooks:
+  - name: pre-commit
+    script: |
+      #!/usr/bin/env python
+      print("Running lint")

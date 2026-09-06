@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "git-hooks-manager"
+version = "0.1.0"
+description = "Centralized git hooks manager"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["typer>=0.9", "rich>=13.0", "pyyaml>=6.0", "jsonschema>=4.20"]
+
+[project.scripts]
+ghm = "git_hooks_manager.cli:app"
