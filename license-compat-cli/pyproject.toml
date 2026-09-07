@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "license-compat-cli"
+version = "0.1.0"
+description = "License compatibility analyzer for dependency trees"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich", "typer", "packaging"]
+
+[project.scripts]
+license-compat-cli = "license_compat_cli.cli:app"
