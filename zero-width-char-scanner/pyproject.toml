@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zero-width-char-scanner"
+version = "0.1.0"
+description = "Detect zero-width and invisible Unicode characters in source code"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.7", "typer>=0.9"]
+
+[project.scripts]
+zero-width-char-scanner = "zero_width_char_scanner.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
