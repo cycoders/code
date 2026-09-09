@@ -1,0 +1,5 @@
+typer
+rich
+cyclonedx-python-lib
+spdx-tools
+pydantic
