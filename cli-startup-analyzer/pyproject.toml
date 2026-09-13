@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cli-startup-analyzer"
+version = "0.1.0"
+description = "Profiles CLI startup latency with import cost analysis"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.0", "typer>=0.9"]
+
+[project.scripts]
+cli-startup-analyzer = "cli_startup_analyzer.cli:app"
