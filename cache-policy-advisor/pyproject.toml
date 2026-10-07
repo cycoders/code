@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cache-policy-advisor"
+version = "0.1.0"
+description = "Analyze access logs and recommend optimal HTTP cache policies"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["click>=8.1", "rich>=13.0", "pydantic>=2.0", "python-dateutil>=2.8"]
+
+[project.scripts]
+cache-policy-advisor = "cache_policy_advisor.cli:cli"
