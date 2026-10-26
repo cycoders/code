@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lazy-import-recommender"
+version = "0.1.0"
+description = "Recommend and apply lazy imports to reduce startup time"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["libcst>=1.2.0", "rich>=13.0", "click>=8.1", "importlib-metadata>=6.0"]
+
+[project.scripts]
+lazy-import-recommender = "lazy_import_recommender.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
