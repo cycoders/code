@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "packaging-auditor"
+version = "0.1.0"
+description = "Audit Python packaging metadata and configuration"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Arya Sianati"}]
+requires-python = ">=3.11"
+dependencies = ["rich>=13.0", "typer>=0.9"]
+
+[project.scripts]
+packaging-auditor = "packaging_auditor.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/packaging_auditor"]
